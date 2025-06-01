@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS://CYBER_SITE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        ::selection {
+            background: #00ff00;
+            color: #000;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            line-height: 1.2;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 0, 0.03) 2px,
+                    rgba(0, 255, 0, 0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.02;
+            z-index: 2;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgbnVtT2N0YXZlcz0iMTAiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9IjEiLz48L3N2Zz4=');
+        }
+
+        .container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #000;
+            position: relative;
+            border: 2px solid #00ff00;
+            box-shadow: 
+                0 0 100px rgba(0, 255, 0, 0.5),
+                inset 0 0 100px rgba(0, 255, 0, 0.1);
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+            .container {
+                border-color: #000;
+                box-shadow: none;
+            }
+            .noise, body::before, .glitch, .scanner {
+                display: none !important;
+            }
+            * {
+                cursor: default !important;
+            }
+        }
+
+        header {
+            background: #000;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 10px solid #00ff00;
+        }
+
+        .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                115deg,
+                transparent 40%,
+                rgba(0, 255, 0, 0.1) 40%,
+                rgba(0, 255, 0, 0.1) 60%,
+                transparent 60%
+            );
+            animation: glitch-slide 8s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glitch-slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        h1 {
+            font-size: 60px;
+            font-weight: 900;
+            letter-spacing: -4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            position: relative;
+            color: #fff;
+            text-shadow: 
+                2px 2px 0 #00ff00,
+                -2px -2px 0 #ff0000,
+                0 0 20px rgba(0, 255, 0, 0.5);
+            animation: glitch-text 2s infinite;
+        }
+
+        @keyframes glitch-text {
+            0%, 100% { text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #ff0000, 0 0 20px rgba(0, 255, 0, 0.5); }
+            50% { text-shadow: -2px 2px 0 #00ff00, 2px -2px 0 #ff0000, 0 0 30px rgba(0, 255, 0, 0.8); }
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            flex-wrap: wrap;
+            font-weight: bold;
+        }
+
+        .contact-info span {
+            position: relative;
+            padding: 5px 10px;
+            background: #00ff00;
+            color: #000;
+            transform: skewX(-10deg);
+            transition: all 0.3s;
+        }
+
+        .contact-info span:hover {
+            transform: skewX(10deg) scale(1.1);
+            background: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            position: relative;
+        }
+
+        .sidebar {
+            background: #0a0a0a;
+            padding: 30px;
+            border-right: 4px solid #00ff00;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: 'CLASSIFIED';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 80px;
+            opacity: 0.05;
+            color: #ff0000;
+            font-weight: 900;
+            pointer-events: none;
+        }
+
+        .content {
+            padding: 30px;
+            background: #050505;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #00ff00;
+            color: #000;
+            position: relative;
+            letter-spacing: 4px;
+            transform: skewY(-2deg);
+            box-shadow: 
+                5px 5px 0 #000,
+                10px 10px 0 #00ff00;
+            transition: all 0.3s;
+        }
+
+        h2:hover {
+            transform: skewY(2deg) translateX(-5px);
+            box-shadow: 
+                -5px 5px 0 #000,
+                -10px 10px 0 #ff0000;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 20px 0 15px;
+            text-transform: uppercase;
+            color: #00ff00;
+            border-left: 6px solid #00ff00;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        h3::before {
+            content: '>';
+            position: absolute;
+            left: -20px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .about-text {
+            font-size: 14px;
+            padding: 20px;
+            background: #000;
+            border: 3px solid #00ff00;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            color: #00ff00;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .about-text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background: #000;
+            color: #ff0000;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            animation: reveal 3s infinite;
+        }
+
+        @keyframes reveal {
+            0%, 100% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+            50% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #000;
+            border: 3px solid #00ff00;
+            position: relative;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.1);
+            transition: top 0.3s;
+        }
+
+        .skill-category:hover::before {
+            top: 0;
+        }
+
+        .skill-category:hover {
+            transform: rotate(-1deg) scale(1.02);
+            border-color: #ff0000;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 0, 0, 0.1);
+        }
+
+        .skill-category h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            background: #00ff00;
+            color: #000;
+            padding: 8px 15px;
+            margin: -15px -15px 15px -15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category h4::after {
+            content: 'ACCESS GRANTED';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ff0000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s;
+        }
+
+        .skill-category:hover h4::after {
+            left: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 13px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #00ff00;
+            transition: all 0.2s;
+        }
+
+        li:hover {
+            padding-left: 35px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        li::before {
+            content: '//';
+            position: absolute;
+            left: 0;
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .achievement-item {
+            background: #000;
+            color: #00ff00;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 4px solid #00ff00;
+            position: relative;
+            transform: rotate(-0.5deg);
+            transition: all 0.3s;
+        }
+
+        .achievement-item:nth-child(even) {
+            transform: rotate(0.5deg);
+        }
+
+        .achievement-item:hover {
+            transform: rotate(0deg) scale(1.05);
+            border-color: #ff0000;
+            box-shadow: 
+                0 0 50px rgba(255, 0, 0, 0.8),
+                inset 0 0 50px rgba(255, 0, 0, 0.2);
+        }
+
+        .achievement-item a {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border: 2px solid #ff0000;
+            display: inline-block;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-item a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ff0000;
+            z-index: -1;
+            transition: left 0.3s;
+        }
+
+        .achievement-item a:hover {
+            color: #000;
+        }
+
+        .achievement-item a:hover::before {
+            left: 0;
+        }
+
+        .predisposition-item {
+            display: inline-block;
+            background: #000;
+            color: #00ff00;
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 3px solid #00ff00;
+            position: relative;
+            transform: skewX(-10deg);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .predisposition-item::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #00ff00;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.3s;
+        }
+
+        .predisposition-item:hover::before {
+            transform: translateY(0);
+        }
+
+        .predisposition-item:hover {
+            transform: skewX(10deg) scale(1.1);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+
+        .education-block {
+            background: #000;
+            padding: 20px;
+            border-left: 6px solid #ff0000;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .education-block::before {
+            content: 'VERIFIED';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 10px;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 2px 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .education-block:hover::before {
+            opacity: 1;
+        }
+
+        .education-block:hover {
+            border-left-width: 20px;
+            padding-left: 30px;
+            background: #0a0a0a;
+        }
+
+        .education-block h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .education-block p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #00ff00;
+        }
+
+        .language-level {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 12px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .footer-text {
+            text-align: center;
+            padding: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #000;
+            color: #00ff00;
+            border-top: 6px solid #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-text::before {
+            content: 'TRANSMISSION ENDED';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff0000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: circle(0% at 50% 50%);
+            transition: clip-path 0.5s;
+        }
+
+        .footer-text:hover::before {
+            clip-path: circle(100% at 50% 50%);
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #000;
+            color: #00ff00;
+            padding: 4px 10px;
+            margin: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px solid #00ff00;
+            position: relative;
+            transform: skewX(-5deg);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .tech-tag:hover {
+            background: #00ff00;
+            color: #000;
+            transform: skewX(5deg) scale(1.2) rotate(5deg);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 0, 0.8),
+                -5px 5px 0 #000;
+        }
+
+        .tech-tag:active {
+            transform: scale(0.9);
+        }
+
+        .scanner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .corner-element {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #00ff00;
+        }
+
+        .corner-element.top-left {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-element.top-right {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-element.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-element.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.05;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-size: 20px;
+            line-height: 20px;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            animation: matrix-fall linear infinite;
+        }
+
+        @keyframes matrix-fall {
+            to { transform: translateY(200vh); }
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 4px solid #00ff00;
+            }
+            h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="scanner"></div>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="container">
+        <div class="corner-element top-left"></div>
+        <div class="corner-element top-right"></div>
+        <div class="corner-element bottom-left"></div>
+        <div class="corner-element bottom-right"></div>
+        
+        <header>
+            <div class="glitch"></div>
+            <h1 data-text="WSPARCIE">WSPARCIE</h1>
+            <div class="contact-info">
+                <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>[PROFILE]</h2>
+                    <div class="about-text" data-text="Obecnie moim głównym celem jest uzyskanie pierwszego doświadczenia w obszarze IT, w szczególności cyberbezpieczeństwa. Stanowiłoby to okazję do wykorzystania dotychczas zdobytych umiejętności praktycznych i teoretycznych zarówno w ramach studiów inżynierskich, jak i samorozwoju.">
+                        Obecnie moim głównym celem jest uzyskanie pierwszego doświadczenia w obszarze IT, w szczególności cyberbezpieczeństwa. 
+                        Stanowiłoby to okazję do wykorzystania dotychczas zdobytych umiejętności praktycznych i teoretycznych zarówno w 
+                        ramach studiów inżynierskich, jak i samorozwoju.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>[EDUCATION]</h2>
+                    <div class="education-block">
+                        <h4>POLITECHNIKA WROCŁAWSKA</h4>
+                        <p>INITIALIZED: 10.2024</p>
+                        <p>FACULTY: Informatyka i Telekomunikacja</p>
+                        <p><strong>SPECIALIZATION: CYBERBEZPIECZEŃSTWO</strong></p>
+                    </div>
+                    <div class="education-block">
+                        <h4>LANGUAGE PROTOCOLS</h4>
+                        <p>English <span class="language-level">B2/C1</span></p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>[ATTRIBUTES]</h2>
+                    <div>
+                        <span class="predisposition-item" data-text="FAST LEARNER">SZYBKIE UCZENIE SIĘ</span>
+                        <span class="predisposition-item" data-text="DATA HUNTER">SKUTECZNE ZDOBYWANIE INFORMACJI</span>
+                        <span class="predisposition-item" data-text="ORGANIZED">DOBRA ORGANIZACJA PRACY</span>
+                        <span class="predisposition-item" data-text="PRECISE">DOKŁADNOŚĆ</span>
+                        <span class="predisposition-item" data-text="RELIABLE">RZETELNOŚĆ</span>
+                        <span class="predisposition-item" data-text="RESPONSIBLE">ODPOWIEDZIALNOŚĆ</span>
+                        <span class="predisposition-item" data-text="PRESSURE RESISTANT">PRACA POD PRESJĄ CZASU</span>
+                        <span class="predisposition-item" data-text="DEADLINE KEEPER">DOTRZYMYWANIE TERMINÓW</span>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2>[SKILL_MATRIX]</h2>
+                    
+                    <div class="skill-category">
+                        <h4>➢ PROGRAMMING & SOFTWARE DEVELOPMENT</h4>
+                        <ul>
+                            <li><strong>Python [MASTERY]</strong> – skrypty automatyzacyjne, aplikacje webowe/CLI/GUI, analiza danych</li>
+                            <li><strong>C++, C#</strong> - aplikacje desktopowe, game development w Unity</li>
+                            <li><strong>JavaScript</strong> - web development, Discord bots, frontend scripting</li>
+                            <li><strong>Bash, PowerShell</strong> - system administration, automation, task scheduling</li>
+                            <li><strong>Docker</strong> – containerization, monitoring z Grafana Pyroscope</li>
+                            <li><strong>Version Control</strong> - Git/GitHub collaborative workflows</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ DATA ANALYSIS & SCIENCE</h4>
+                        <ul>
+                            <li><strong>Data Processing</strong> - <span class="tech-tag">PANDAS</span> <span class="tech-tag">NUMPY</span> manipulation & statistical analysis</li>
+                            <li><strong>Data Visualization</strong> - <span class="tech-tag">MATPLOTLIB</span> <span class="tech-tag">PLOTLY</span> charts & reports, FlameGraphs performance analysis</li>
+                            <li><strong>Web Scraping</strong> - <span class="tech-tag">SELENIUM</span> <span class="tech-tag">BEAUTIFULSOUP</span> automated data extraction</li>
+                            <li><strong>OCR & Image Processing</strong> - <span class="tech-tag">TESSERACT</span> <span class="tech-tag">PILLOW</span>, PyAutoGUI automation</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ WEB TECHNOLOGIES & FRONTEND</h4>
+                        <ul>
+                            <li><strong>Django/Flask</strong> - full-stack web applications, authentication systems</li>
+                            <li><strong>HTML/CSS/JavaScript</strong> - responsive modern web design, Bootstrap framework</li>
+                            <li><strong>RESTful APIs</strong> - web services creation, SMTP integration</li>
+                            <li><strong>GUI Development</strong> - <span class="tech-tag">PYSIDE6/QT6</span> <span class="tech-tag">TKINTER</span> desktop applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ DATABASE & BACKEND TECHNOLOGIES</h4>
+                        <ul>
+                            <li><strong>Database Design</strong> - entity relationships, SQL management</li>
+                            <li><strong>Authentication Systems</strong> - data management, session handling, BCrypt encryption</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ SYSTEM & NETWORK ADMINISTRATION</h4>
+                        <ul>
+                            <li><strong>Operating Systems</strong> - Windows & Linux administration, security & filesystem management</li>
+                            <li><strong>Network Protocols</strong> - IPv4/IPv6, TCP/UDP, DNS, SSH, FTP/SFTP configuration</li>
+                            <li>LAN design & implementation, router/switch configuration, VLAN management</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ CYBERSECURITY & PENETRATION TESTING</h4>
+                        <ul>
+                            <li><strong>Web Application Security</strong> - <span class="tech-tag">BURP SUITE</span> <span class="tech-tag">METASPLOIT</span> penetration testing</li>
+                            <li><strong>Network Protocol Analysis</strong> – <span class="tech-tag">WIRESHARK</span> <span class="tech-tag">SOCAT</span> <span class="tech-tag">SCAPY</span> <span class="tech-tag">HYDRA</span></li>
+                            <li><strong>Cryptographic Analysis</strong> – encryption algorithms, <span class="tech-tag">HASHCAT</span> <span class="tech-tag">JOHN THE RIPPER</span> hash cracking</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>[ACHIEVEMENTS]</h2>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: SOCIAL IMPACT]</strong><br>
+                        Ecological computer game project, organized by <strong>Zwolnieni z Teorii</strong> foundation<br>
+                        [CONTRIBUTION: Procedurally generated building models using Geometry Nodes]<br>
+                        <a href="https://garbage-can.itch.io/garbage-can" target="_blank">[ACCESS PROJECT]</a>
+                    </div>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: EDUCATIONAL]</strong><br>
+                        Individual Educational Development Plan implementation<br>
+                        <strong>Mazowieckie Scholarship Program for Exceptionally Talented Students</strong><br>
+                        [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]
+                    </div>
+                </section>
+            </main>
+        </div>
