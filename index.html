@@ -63,7 +63,8 @@
         }
 
         .container {
-            width: 210mm;
+            width: 85vw;
+            max-width: 1800px;
             min-height: 297mm;
             margin: 0 auto;
             background: #000;
@@ -171,7 +172,7 @@
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             position: relative;
         }
 
@@ -277,7 +278,7 @@
             background: #000;
             color: #ff0000;
             clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-            animation: reveal 3s infinite;
+            animation: reveal 10s infinite;
         }
 
         @keyframes reveal {
@@ -702,9 +703,11 @@
         
         <header>
             <div class="glitch"></div>
-            <h1 data-text="WSPARCIE">WSPARCIE</h1>
-            <div class="contact-info">
-                <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+                <h1 data-text="WSPARCIE" style="margin-bottom: 0;">WSPARCIE</h1>
+                <div class="contact-info" style="margin-bottom: 0;">
+                    <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+                </div>
             </div>
         </header>
 
@@ -712,8 +715,24 @@
             <aside class="sidebar">
                 <section class="section">
                     <h2>[PROFILE]</h2>
-                    <div class="about-text" data-text="My main goal is to gain my first experience in the IT field, particularly in cybersecurity. This would provide an opportunity to utilize the practical and theoretical skills I have acquired so far, both in my engineering studies and in self-development.">
-                        I would like to do an internship at your company with the possibility of starting immediately.
+                    <div class="about-text" data-text="My main goal is to gain my first experience in the IT field, particularly in cybersecurity. This would provide an opportunity to utilize the practical and theoretical skills I have acquired so far, both in my engineering studies and in self-development. I would like to do an internship at your company with the possibility of starting immediately.">
+                        <pre style="font-family: 'Courier New', Courier, monospace; font-size: 13px; background: none; border: none; color: #00ff00; margin: 0; padding: 0;">
+       _                        
+       \`*-.                    
+        )  _`-.                 
+       .  : `. .                
+       : _   '  \               
+       ; *` _.   `*-._          
+       `-.-'          `-.       
+         ;       `       `.     
+         :.       .        \    
+         . \  .   :   .-'   .   
+         '  `+.;  ;  '      :   
+         :  '  |    ;       ;-. 
+         ; '   : :`-:     _.`* ;
+[bug] .*' /  .*' ; .*`- +'  `*' 
+      `*-*   `*-*  `*-*'
+                        </pre>
                     </div>
                 </section>
 
@@ -744,7 +763,25 @@
                         <span class="predisposition-item" data-text="DEADLINE KEEPER">DEADLINE KEEPER</span>
                     </div>
                 </section>
+
+                <section class="section">
+                    <h2>[ACHIEVEMENTS]</h2>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: SOCIAL IMPACT]</strong><br>
+                        Ecological computer game project, organized by <strong>Zwolnieni z Teorii</strong> foundation<br>
+                        [CONTRIBUTION: Procedurally generated building models using Geometry Nodes]<br>
+                        <a href="https://garbage-can.itch.io/garbage-can" target="_blank">[ACCESS PROJECT]</a>
+                    </div>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: EDUCATIONAL]</strong><br>
+                        Individual Educational Development Plan implementation<br>
+                        <strong>Mazowieckie Scholarship Program for Exceptionally Talented Students</strong><br>
+                        [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]
+                    </div>
+                </section>
             </aside>
+
+            
 
             <main class="content">
                 <section class="section">
@@ -809,20 +846,43 @@
                     </div>
                 </section>
 
-                <section class="section">
-                    <h2>[ACHIEVEMENTS]</h2>
-                    <div class="achievement-item">
-                        <strong>[PROJECT: SOCIAL IMPACT]</strong><br>
-                        Ecological computer game project, organized by <strong>Zwolnieni z Teorii</strong> foundation<br>
-                        [CONTRIBUTION: Procedurally generated building models using Geometry Nodes]<br>
-                        <a href="https://garbage-can.itch.io/garbage-can" target="_blank">[ACCESS PROJECT]</a>
-                    </div>
-                    <div class="achievement-item">
-                        <strong>[PROJECT: EDUCATIONAL]</strong><br>
-                        Individual Educational Development Plan implementation<br>
-                        <strong>Mazowieckie Scholarship Program for Exceptionally Talented Students</strong><br>
-                        [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]
-                    </div>
-                </section>
+                
             </main>
         </div>
+
+        <div class="footer-text">
+            © 2024 KS://CYBER_SITE. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // Matrix effect for the background
+        const matrixBg = document.getElementById('matrix');
+        const columns = Math.floor(window.innerWidth / 20);
+        const drops = Array.from({ length: columns }).fill(0);
+
+        function matrix() {
+            matrixBg.innerHTML = drops
+                .map((drop, i) => {
+                    const char = String.fromCharCode(Math.random() * 128);
+                    const style = `left:${i * 20}px; animation-delay:${Math.random() * 5}s`;
+                    drops[i] = drop > 25 ? 0 : drop + 1;
+                    return `<span style="${style}">${char}</span>`;
+                })
+                .join('');
+        }
+
+        setInterval(matrix, 50);
+
+        // Adjusting the scanner animation based on the screen height
+        const scanner = document.querySelector('.scanner');
+        const updateScanner = () => {
+            const height = window.innerHeight / 100;
+            scanner.style.height = `${height}px`;
+        };
+
+        window.addEventListener('resize', updateScanner);
+        updateScanner();
+    </script>
+</body>
+</html>
