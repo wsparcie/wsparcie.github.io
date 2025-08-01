@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS://CYBER_SITE - About Me</title>
+</head>
+<body>
+<div class="noise"></div>
+    <div class="scanner"></div>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="container">
+        <div class="corner-element top-left"></div>
+        <div class="corner-element top-right"></div>
+        <div class="corner-element bottom-left"></div>
+        <div class="corner-element bottom-right"></div>
+        
+        <header>
+            <div class="glitch"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+                <h1 data-text="WSPARCIE" style="margin-bottom: 0;">WSPARCIE</h1>
+
+            <!-- Navigation Bar -->
+            <nav class="nav-bar">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-item">HOME</a>
+                    <a href="aboutme.html" class="nav-item active">ABOUT_ME</a>
+                    <a href="projects.html" class="nav-item">PROJECTS</a>
+                </div>
+            </nav>
+
+                <div class="contact-info" style="margin-bottom: 0;">
+                    <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>[PERSONAL_INFO]</h2>
+                    
+                    <div class="skill-category">
+                        <h4>➢ BACKGROUND & MOTIVATION</h4>
+                        <div style="padding: 15px; background: #000; border: 2px solid #00ff00; margin: 10px 0;">
+                            <p style="color: #00ff00; line-height: 1.5; margin-bottom: 15px;">
+                                I'm a passionate student with a love for creating practical solutions and exploring different aspects of programming.
+                                Currently pursuing a degree in <strong>Cybersecurity</strong> at <strong>Wroclaw University of Science and Technology</strong>.
+                                My passion for technology and security drives me to continuously expand my knowledge through hands-on projects
+                                and self-directed learning.
+                            </p>
+                            <p style="color: #00ff00; line-height: 1.5; margin-bottom: 15px;">
+                                I thrive in challenging environments where I can apply both theoretical knowledge and practical skills 
+                                to solve complex problems. My goal is to contribute to the cybersecurity field while continuously 
+                                growing as a programmer.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2>[ROADMAP]</h2>
+                    <div class="skill-category">
+                        <h4>➢ CURRENT FOCUS</h4>
+                        <ul>
+                            <li><strong>Security</strong> - staying updated with latest threats and defense mechanisms</li>
+                            <li><strong>Automation</strong> - creating interactive experiences and procedural content</li>
+                            <li><strong>Data Science</strong> - participating in community-driven projects</li>
+                            <li><strong>Automation</strong> - building tools to streamline workflows and processes</li>
+                            <li><strong>Full-Stack Development</strong> - exploring penetration testing and vulnerability assessment</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ PHILOSOPHY & APPROACH</h4>
+                        <div style="padding: 15px; background: #000; border: 2px solid #ff0000; margin: 10px 0;">
+                            <p style="color: #ff0000; line-height: 1.5; margin-bottom: 10px; font-weight: bold;">
+                                "Security is not a product, but a process."
+                            </p>
+                            <p style="color: #00ff00; line-height: 1.5;">
+                                I believe in continuous learning and building secure systems 
+                                from the ground up. Every vulnerability is an opportunity to strengthen defenses and 
+                                improve overall security posture.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div class="footer-text">
+            © 2024 KS://CYBER_SITE. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // Matrix effect for the background
+        const matrixBg = document.getElementById('matrix');
+        const columns = Math.floor(window.innerWidth / 20);
+        const drops = Array.from({ length: columns }).fill(0);
+
+        function matrix() {
+            matrixBg.innerHTML = drops
+                .map((drop, i) => {
+                    const char = String.fromCharCode(Math.random() * 128);
+                    const style = `left:${i * 20}px; animation-delay:${Math.random() * 5}s`;
+                    drops[i] = drop > 25 ? 0 : drop + 1;
+                    return `<span style="${style}">${char}</span>`;
+                })
+                .join('');
+        }
+
+        setInterval(matrix, 50);
+
+        // Adjusting the scanner animation based on the screen height
+        const scanner = document.querySelector('.scanner');
+        const updateScanner = () => {
+            const height = window.innerHeight / 100;
+            scanner.style.height = `${height}px`;
+        };
+
+        window.addEventListener('resize', updateScanner);
+        updateScanner();
+    </script>
+</body>
+</html>

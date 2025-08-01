@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS://CYBER_SITE - Projects</title>
+</head>
+<body>
+<div class="noise"></div>
+    <div class="scanner"></div>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="container">
+        <div class="corner-element top-left"></div>
+        <div class="corner-element top-right"></div>
+        <div class="corner-element bottom-left"></div>
+        <div class="corner-element bottom-right"></div>
+        
+        <header>
+            <div class="glitch"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+                <h1 data-text="WSPARCIE" style="margin-bottom: 0;">WSPARCIE</h1>
+
+            <!-- Navigation Bar -->
+            <nav class="nav-bar">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-item">HOME</a>
+                    <a href="aboutme.html" class="nav-item">ABOUT_ME</a>
+                    <a href="projects.html" class="nav-item active">PROJECTS</a>
+                </div>
+            </nav>
+
+                <div class="contact-info" style="margin-bottom: 0;">
+                    <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>[PROJECTS]</h2>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: SOCIAL IMPACT]</strong><br>
+                        <span style="color: #ff0000;">STATUS: COMPLETED & PUBLISHED</span><br>  
+                        Ecological computer game project <span style="font-style: italic;">Garbage Can</span>,  
+                        organized by <strong>Zwolnieni z Teorii</strong> foundation<br>  
+                        <span style="color: #00ff00;">CONTRIBUTION: Procedurally generated building models using Geometry Nodes</span><br>  
+                        <a href="https://garbage-can.itch.io/garbage-can" target="_blank">[PLAY GAME]</a>  
+                    </div>
+                </section>
+                <section class="section">
+                    <h2>[ACHIEVEMENTS]</h2>
+                    <div class="achievement-item">
+                        <strong>[PROJECT: EDUCATIONAL]</strong><br>
+                        Individual Educational Development Plan implementation<br>
+                        <strong>Mazowieckie Scholarship Program for Exceptionally Talented Students</strong><br>
+                        [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+
+
+                <section class="section">
+                    <h2>[GITHUB_REPOSITORIES]</h2>
+                    
+                    <div class="skill-category">
+                        <h4>➢ LIVE GITHUB FEED</h4>
+                        
+                        <div id="github-repos" style="background: #000; border: 3px solid #00ff00; padding: 20px;">
+                            <div style="display: flex; justify-content: center; align-items: center; min-height: 100px;">
+                                <p style="color: #00ff00; text-align: center;">
+                                    <span class="tech-tag">LOADING</span> GitHub repositories...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <div class="footer-text">
+            © 2024 KS://CYBER_SITE. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // Matrix effect for the background
+        const matrixBg = document.getElementById('matrix');
+        const columns = Math.floor(window.innerWidth / 20);
+        const drops = Array.from({ length: columns }).fill(0);
+
+        function matrix() {
+            matrixBg.innerHTML = drops
+                .map((drop, i) => {
+                    const char = String.fromCharCode(Math.random() * 128);
+                    const style = `left:${i * 20}px; animation-delay:${Math.random() * 5}s`;
+                    drops[i] = drop > 25 ? 0 : drop + 1;
+                    return `<span style="${style}">${char} </span>`;
+                })
+                .join('');
+        }
+
+        setInterval(matrix, 50);
+
+        // Adjusting the scanner animation based on the screen height
+        const scanner = document.querySelector('.scanner');
+        const updateScanner = () => {
+            const height = window.innerHeight / 100;
+            scanner.style.height = `${height}px`;
+        };
+
+        window.addEventListener('resize', updateScanner);
+        updateScanner();
+
+        // GitHub Repositories Widget
+        async function fetchGitHubRepos() {
+            const reposContainer = document.getElementById('github-repos');
+            try {
+                const response = await fetch('https://api.github.com/users/wsparcie/repos?sort=updated&direction=desc');
+                const repos = await response.json();
+                
+                if (!response.ok) throw new Error(repos.message || 'Failed to fetch repositories');
+                
+                let html = '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px;">';
+                
+                repos.forEach(repo => {
+                    if (!repo.fork) { // Skip forked repositories
+                        const updatedAt = new Date(repo.updated_at).toLocaleDateString();
+                        html += `
+                            <div style="background: #0a0a0a; border: 2px solid #00ff00; padding: 15px; position: relative;">
+                                <h3 style="color: #00ff00; margin-top: 0; margin-bottom: 10px;">
+                                    <a href="${repo.html_url}" target="_blank" style="color: inherit; text-decoration: none;">
+                                        ${repo.name}
+                                    </a>
+                                </h3>
+                                <p style="color: #00ff00; font-size: 12px; margin-bottom: 10px;">${repo.description || 'No description provided'}</p>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
+                                        ⭐ ${repo.stargazers_count}
+                                    </span>
+                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
+                                        🍴 ${repo.forks_count}
+                                    </span>
+                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
+                                        📅 ${updatedAt}
+                                    </span>
+                                    ${repo.language ? `
+                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
+                                        ${repo.language}
+                                    </span>` : ''}
+                                </div>
+                                <a href="${repo.html_url}" target="_blank" style="position: absolute; bottom: 10px; right: 10px; color: #ff0000; text-decoration: none; font-size: 12px; font-weight: bold;">
+                                    [VIEW CODE]
+                                </a>
+                            </div>
+                        `;
+                    }
+                });
+                
+                html += '</div>';
+                reposContainer.innerHTML = html;
+                
+            } catch (error) {
+                reposContainer.innerHTML = `
+                    <div style="color: #ff0000; text-align: center; padding: 20px;">
+                        <p>ERROR: Could not load GitHub repositories</p>
+                        <p style="font-size: 12px;">${error.message}</p>
+                        <a href="https://github.com/wsparcie?tab=repositories" target="_blank" style="color: #00ff00; text-decoration: none;">
+                            [VIEW ON GITHUB]
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Call the function when the page loads
+        fetchGitHubRepos();
+
+    </script>
+</body>
+</html>
