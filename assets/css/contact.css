@@ -1,0 +1,252 @@
+/* Contact Page Specific Styles */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-method {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ff00;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-method h3 {
+  margin-top: 0;
+  color: #ff0000;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 10px;
+}
+
+.cyber-input {
+  position: relative;
+  background: #000;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 12px 15px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.cyber-input:hover {
+  border-color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ff00;
+  pointer-events: none;
+}
+
+.copy-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ff00;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.3s;
+}
+
+.copy-icon:hover {
+  color: #ff0000;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00ff00;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #00ff00;
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.social-icon {
+  font-size: 18px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.status-light {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.status-light.active {
+  background: #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+  animation: pulse 2s infinite;
+}
+
+.status-text {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.status-note {
+  color: #00ff00;
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+.cyber-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #00ff00;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cyber-button {
+  position: relative;
+  background: #000;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 12px 25px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.cyber-button:hover {
+  background: #00ff00;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+.cyber-button.secondary {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.cyber-button.secondary:hover {
+  background: #ff0000;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+.button-loader {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 0, 0.3),
+    transparent
+  );
+  transition: left 0.3s;
+}
+
+.cyber-button:disabled .button-loader {
+  left: 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.form-status {
+  padding: 15px;
+  margin-top: 20px;
+  border: 2px solid transparent;
+  font-weight: bold;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  color: #00ff00;
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+}
+
+.form-status.error {
+  display: block;
+  color: #ff0000;
+  border-color: #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}

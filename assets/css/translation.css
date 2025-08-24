@@ -1,0 +1,477 @@
+/* Light Mode Theme Styles */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #000;
+  --bg-accent: #050505;
+  --text-primary: #00ff00;
+  --text-secondary: #fff;
+  --text-accent: #ff0000;
+  --border-primary: #00ff0000;
+  --border-accent: #ff0000;
+  --shadow-primary: rgba(0, 255, 0, 0.5);
+  --shadow-accent: rgba(255, 0, 0, 0.5);
+}
+
+/* Light Mode Social Icons */
+[data-theme='light'] .social-sidebar {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--border-primary);
+}
+
+[data-theme='light'] .social-icon {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+[data-theme='light'] .social-icon::before {
+  background: var(--text-primary);
+}
+
+[data-theme='light'] .social-icon:hover {
+  color: var(--bg-secondary);
+  box-shadow: 5px 5px 0 var(--shadow-primary);
+}
+
+[data-theme='light'] .social-tooltip {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+/* Mobile light mode */
+@media (max-width: 768px) {
+  [data-theme='light'] .social-sidebar {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Light mode color scheme */
+[data-theme='light'] {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-accent: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #fd5f00;
+  --text-accent: #0066cc;
+  --border-primary: #33333300;
+  --border-accent: rgb(0, 102, 204);
+  --shadow-primary: rgba(51, 51, 51, 0.3);
+  --shadow-accent: rgba(0, 102, 204, 0.3);
+}
+
+/* Ensure light mode compatibility */
+[data-theme='light'] h1,
+[data-theme='light'] .title-name {
+  color: var(--text-secondary); /* Will be #000000 in light mode */
+}
+
+[data-theme='light'] h1:hover,
+[data-theme='light'] .title-name:hover {
+  color: var(--text-accent); /* Will be #0066cc in light mode */
+}
+
+/* Apply theme variables to existing styles */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.container {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  box-shadow: 0 0 100px var(--shadow-primary),
+    inset 0 0 100px var(--shadow-primary);
+}
+
+/* Navigation theming */
+.nav-bar {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+}
+
+.nav-item {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.nav-item::before {
+  background: var(--text-primary);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--bg-secondary);
+  box-shadow: 0 0 20px var(--shadow-primary);
+}
+
+/* Header theming */
+header {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+}
+
+h1 {
+  color: var(--text-secondary);
+  text-shadow: 2px 2px 0 var(--text-primary), -2px -2px 0 var(--text-accent),
+    0 0 20px var(--shadow-primary);
+}
+
+.contact-info span {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+}
+
+.contact-info span:hover {
+  background: var(--text-secondary);
+  color: var(--bg-secondary);
+}
+
+/* Content theming */
+.sidebar {
+  background: var(--bg-accent);
+  border-color: var(--border-primary);
+}
+
+.content {
+  background: var(--bg-accent);
+}
+
+h2 {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+  box-shadow: 5px 5px 0 var(--bg-secondary), 10px 10px 0 var(--text-primary);
+}
+
+h2:hover {
+  box-shadow: -5px 5px 0 var(--bg-secondary), -10px 10px 0 var(--text-accent);
+}
+
+h3 {
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+/* Skill categories and sections */
+.skill-category {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+}
+
+.skill-category:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 30px var(--shadow-accent), inset 0 0 30px var(--shadow-accent);
+}
+
+.skill-category h4 {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+}
+
+.skill-category h4::after {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+}
+
+.about-text {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+/* List items */
+li {
+  color: var(--text-primary);
+}
+
+li:hover {
+  color: var(--text-secondary);
+}
+
+li::before {
+  color: var(--text-accent);
+}
+
+/* Achievement items */
+.achievement-item {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.achievement-item:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 50px var(--shadow-accent), inset 0 0 50px var(--shadow-accent);
+}
+
+.achievement-item a {
+  color: var(--text-accent);
+  border-color: var(--border-accent);
+}
+
+.achievement-item a::before {
+  background: var(--text-accent);
+}
+
+/* Predisposition items */
+.predisposition-item {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.predisposition-item::before {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+}
+
+.predisposition-item:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 20px var(--shadow-accent);
+}
+
+/* Education blocks */
+.education-block {
+  background: var(--bg-secondary);
+  border-color: var(--border-accent);
+}
+
+.education-block::before {
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.education-block:hover {
+  background: var(--bg-primary);
+}
+
+.education-block h4 {
+  color: var(--text-secondary);
+}
+
+.education-block p {
+  color: var(--text-primary);
+}
+
+.language-level,
+.certificate-details {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+}
+
+/* Footer */
+.footer-text {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.footer-text::before {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+}
+
+/* Tech tags */
+.tech-tag {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.tech-tag:hover {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+  box-shadow: 0 0 20px var(--shadow-primary), -5px 5px 0 var(--bg-secondary);
+}
+
+/* Contact page styles */
+.contact-method {
+  background: var(--bg-accent);
+  border-color: var(--border-primary);
+}
+
+.contact-method h3 {
+  color: var(--text-accent);
+  border-color: var(--border-primary);
+}
+
+.cyber-input {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.cyber-input:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 15px var(--shadow-accent);
+}
+
+.cyber-input:focus {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 20px var(--shadow-accent);
+}
+
+.input-icon,
+.copy-icon {
+  color: var(--text-primary);
+}
+
+.copy-icon:hover {
+  color: var(--text-accent);
+}
+
+.social-link {
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.social-link:hover {
+  background: var(--bg-accent);
+  border-color: var(--border-accent);
+  color: var(--text-accent);
+}
+
+.cyber-button {
+  background: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.cyber-button:hover {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+  box-shadow: 0 0 20px var(--shadow-primary);
+}
+
+.cyber-button.secondary {
+  border-color: var(--border-accent);
+  color: var(--text-accent);
+}
+
+.cyber-button.secondary:hover {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+  box-shadow: 0 0 20px var(--shadow-accent);
+}
+
+/* Profile image styles for light mode */
+[data-theme='light'] .profile-image {
+  filter: grayscale(0%) contrast(100%) brightness(150%) saturate(150%);
+  border-color: var(--border-primary);
+}
+
+[data-theme='light'] .profile-image:hover {
+  border-color: var(--border-accent);
+}
+
+[data-theme='light'] .profile-image-border {
+  border-color: var(--border-accent);
+}
+
+/* Scanner and effects for light mode */
+[data-theme='light'] .scanner {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--text-primary),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+[data-theme='light'] .noise {
+  opacity: 0.01;
+}
+
+[data-theme='light'] body::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    var(--shadow-primary) 2px,
+    var(--shadow-primary) 4px
+  );
+  opacity: 0.1;
+}
+
+/* Matrix background for light mode */
+[data-theme='light'] .matrix-column {
+  color: var(--text-primary);
+  text-shadow: 0 0 5px var(--text-primary);
+  opacity: 0.1;
+}
+
+/* Corner elements */
+.corner-element {
+  border-color: var(--border-primary);
+}
+
+/* Theme switcher button styles */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-primary);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.theme-switcher:hover {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+  box-shadow: 0 0 20px var(--shadow-primary);
+}
+
+/* Accessibility improvements for light mode */
+[data-theme='light'] *::selection {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+}
+
+/* Print styles for light mode */
+@media print {
+  [data-theme='light'] body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  [data-theme='light'] .container {
+    border-color: #000 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Mobile responsiveness for theme switcher */
+@media (max-width: 768px) {
+  .theme-switcher {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+.glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 102, 204, 0.1) 60%,
+    transparent 60%
+  );
+  animation: glitch-slide 8s infinite;
+  pointer-events: none;
+}
