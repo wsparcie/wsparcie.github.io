@@ -1,335 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ST48ERTech://CYBER_SITE</title>
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/icons/favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/icons/favicon_io/favicon-16x16.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/icons/favicon_io/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="assets/css/social.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/aboutme.css" />
-    <link rel="stylesheet" href="assets/css/contact.css" />
-
-    <link rel="stylesheet" href="assets/css/translation.css" />
-    <link rel="stylesheet" href="assets/css/dark-mode.css" />
-
-    <link rel="stylesheet" href="assets/css/tv-channels.css" />
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#00ff00" />
-    <meta
-      name="description"
-      content="Cybersecurity student passionate about programming, web development, and data analysis. Seeking internship opportunities in IT and cybersecurity."
-    />
-  </head>
-  <body>
-    <!-- Social Media Sidebar -->
-    <div class="social-sidebar">
-      <a
-        href="https://github.com/wsparcie"
-        target="_blank"
-        class="social-icon"
-        aria-label="GitHub"
-      >
-        <i class="fab fa-github"></i>
-        <span class="social-tooltip">GitHub</span>
-      </a>
-      <a
-        href="https://linkedin.com/in/yourprofile"
-        target="_blank"
-        class="social-icon"
-        aria-label="LinkedIn"
-      >
-        <i class="fab fa-linkedin-in"></i>
-        <span class="social-tooltip">LinkedIn</span>
-      </a>
-      <a
-        href="https://twitter.com/yourprofile"
-        target="_blank"
-        class="social-icon"
-        aria-label="Twitter"
-      >
-        <i class="fab fa-twitter"></i>
-        <span class="social-tooltip">Twitter</span>
-      </a>
-      <a
-        href="https://youtube.com/yourchannel"
-        target="_blank"
-        class="social-icon"
-        aria-label="YouTube"
-      >
-        <i class="fab fa-youtube"></i>
-        <span class="social-tooltip">YouTube</span>
-      </a>
-      <a
-        href="https://discord.gg/yourinvite"
-        target="_blank"
-        class="social-icon"
-        aria-label="Discord"
-      >
-        <i class="fab fa-discord"></i>
-        <span class="social-tooltip">Discord</span>
-      </a>
-      <a
-        href="https://facebook.com/yourprofile"
-        target="_blank"
-        class="social-icon"
-        aria-label="Facebook"
-      >
-        <i class="fab fa-facebook-f"></i>
-        <span class="social-tooltip">Facebook</span>
-      </a>
-      <a
-        href="https://wa.me/yournumber"
-        target="_blank"
-        class="social-icon"
-        aria-label="WhatsApp"
-      >
-        <i class="fab fa-whatsapp"></i>
-        <span class="social-tooltip">WhatsApp</span>
-      </a>
-      <a
-        href="https://signal.me/yournumber"
-        target="_blank"
-        class="social-icon"
-        aria-label="Signal"
-      >
-        <i class="fas fa-comment-dots"></i>
-        <span class="social-tooltip">Signal</span>
-      </a>
-      <a href="mailto:your@email.com" class="social-icon" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-        <span class="social-tooltip">Email</span>
-      </a>
-    </div>
-    <div class="noise"></div>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS://CYBER_SITE</title>
+</head>
+<body>
+<div class="noise"></div>
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
-
+    
     <div class="container">
-      <div class="corner-element top-left"></div>
-      <div class="corner-element top-right"></div>
-      <div class="corner-element bottom-left"></div>
-      <div class="corner-element bottom-right"></div>
+        <div class="corner-element top-left"></div>
+        <div class="corner-element top-right"></div>
+        <div class="corner-element bottom-left"></div>
+        <div class="corner-element bottom-right"></div>
+        
+        <header>
+            <div class="glitch"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+                <h1 data-text="WSPARCIE" style="margin-bottom: 0;">WSPARCIE</h1>
 
-      <header>
-        <div class="glitch"></div>
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-          "
-        >
-          <div
-            style="display: flex; flex-direction: column; align-items: center"
-          >
-            <h1>
-              <img
-                src="assets/images/wsparcie.png"
-                alt=""
-                style="transform: scale(1.15) translateX(10%) translateY(10%)"
-              />
-            </h1>
-
-            <!-- Enhanced Navigation Bar -->
-            <nav class="nav-bar" role="navigation" aria-label="Main navigation">
-              <div class="nav-menu" id="nav-menu">
-                <a
-                  href="index.html"
-                  class="nav-item active"
-                  data-translate="HOME"
-                  aria-current="page"
-                  >HOME</a
-                >
-                <a
-                  href="aboutme.html"
-                  class="nav-item"
-                  data-translate="ABOUT_ME"
-                  >ABOUT_ME</a
-                >
-                <a
-                  href="projects.html"
-                  class="nav-item"
-                  data-translate="PROJECTS"
-                  >PROJECTS</a
-                >
-                <a href="blog.html" class="nav-item" data-translate="BLOG"
-                  >BLOG</a
-                >
-                <a href="contact.html" class="nav-item" data-translate="CONTACT"
-                  >CONTACT</a
-                >
-              </div>
+            <!-- Navigation Bar -->
+            <nav class="nav-bar">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-item active">HOME</a>
+                    <a href="aboutme.html" class="nav-item">ABOUT_ME</a>
+                    <a href="projects.html" class="nav-item">PROJECTS</a>
+                </div>
             </nav>
-          </div>
 
-          <!-- GitHub link moved here to appear on the right -->
-          <div class="contact-info" style="margin-bottom: 0">
-            <span
-              ><a
-                href="https://github.com/wsparcie"
-                target="_blank"
-                aria-label="Visit GitHub profile"
-                >⚡ github.com/wsparcie ⚡</a
-              ></span
-            >
-          </div>
+                <div class="contact-info" style="margin-bottom: 0;">
+                    <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>[CURRENT_GOAL]</h2>
+                    <div class="about-text" data-text=
+                    "My goal is to gain experience in the IT field, particularly in cybersecurity. This would provide an opportunity to utilize the practical and theoretical skills I have acquired so far, both in my engineering studies and in self-development. I would like to do an internship at your company with the possibility of starting immediately.
+                    I'm a passionate cybersecurity student with a love for creating practical solutions and exploring different aspects of programming. From cybersecurity to web development, from data analysis to procedural 3D modeling - I enjoy diving into diverse technological challenges.">
+                        <pre style="font-family: 'Courier New', Courier, monospace; font-size: 13px; background: none; border: none; color: #00ff00; margin: 0; padding: 0;">
+       _                        
+       \`*-.                    
+        )  _`-.                 
+       .  : `. .                
+       : _   '  \               
+       ; *` _.   `*-._          
+       `-.-'          `-.       
+         ;       `       `.     
+         :.       .        \    
+         . \  .   :   .-'   .   
+         '  `+.;  ;  '      :   
+         :  '  |    ;       ;-. 
+         ; '   : :`-:     _.`* ;
+[bug] .*' /  .*' ; .*`- +'  `*' 
+      `*-*   `*-*  `*-*'
+                        </pre>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>[EDUCATION]</h2>
+                    <div class="education-block">
+                        <h4>WROCLAW UNIVERSITY OF SCIENCE AND TECHNOLOGY</h4>
+                        <p>INITIALIZED: 10.2024</p>
+                        <p>FACULTY: Information and Communication Technology</p>
+                        <p><strong>SPECIALIZATION: CYBERSECURITY</strong></p>
+                    </div>
+                    <div class="education-block">
+                        <h4>LANGUAGES</h4>
+                        <p>English <span class="language-level">B2/C1</span></p>
+                        <p>German <span class="language-level">B1/B2</span></p>
+                    </div>
+                    <div class="education-block">
+                        <h4>CERTIFICATES</h4>
+                        <p>CCNA <span class="certificate-details">Introduction to Networks</span></p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>[APTITUDES]</h2>
+                    <div>
+                        <span class="predisposition-item" data-text="FAST LEARNER">FAST LEARNER</span>
+                        <span class="predisposition-item" data-text="DATA HUNTER">DATA HUNTER</span>
+                        <span class="predisposition-item" data-text="ORGANIZED">ORGANIZED</span>
+                        <span class="predisposition-item" data-text="PRECISE">PRECISE</span>
+                        <span class="predisposition-item" data-text="RELIABLE">RELIABLE</span>
+                        <span class="predisposition-item" data-text="RESPONSIBLE">RESPONSIBLE</span>
+                        <span class="predisposition-item" data-text="PRESSURE RESISTANT">PRESSURE RESISTANT</span>
+                        <span class="predisposition-item" data-text="DEADLINE KEEPER">DEADLINE KEEPER</span>
+                    </div>
+                </section>
+
+
+            </aside>
+
+            
+
+            <main class="content">
+                <section class="section">
+                    <h2>[SKILLS]</h2>
+                    
+                    <div class="skill-category">
+                        <h4>➢ PROGRAMMING & SOFTWARE DEVELOPMENT</h4>
+                        <ul>
+                            <li><strong>Python</strong> – automation scripts, web/GUI/CLI applications, data analysis</li>
+                            <li><strong>C++, C#</strong> - desktop applications, game development in Unity</li>
+                            <li><strong>JavaScript</strong> - web development, Discord bots, frontend scripting</li>
+                            <li><strong>Bash, PowerShell</strong> - system administration, tasks automation</li>
+                            <li><strong>Docker</strong> – regular usage of containerization, monitoring with Grafana Pyroscope</li>
+                            <li><strong>Version Control</strong> - systematic work with Git and GitHub workflows</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ DATA ANALYSIS & SCIENCE</h4>
+                        <ul>
+                            <li><strong>Data Processing</strong> - <span class="tech-tag">PANDAS</span> <span class="tech-tag">NUMPY</span> data processing & statistical analysis</li>
+                            <li><strong>Data Visualization</strong> - <span class="tech-tag">MATPLOTLIB</span> <span class="tech-tag">PLOTLY</span> charts & reports</li>
+                            <li><strong>Web Scraping</strong> - <span class="tech-tag">SELENIUM</span> <span class="tech-tag">BEAUTIFULSOUP</span> data extraction</li>
+                            <li><strong>OCR & Image Processing</strong> - <span class="tech-tag">TESSERACT</span> <span class="tech-tag">PILLOW</span> text recognition and graphic editing</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ WEB TECHNOLOGIES & FRONTEND</h4>
+                        <ul>
+                            <li><strong>Django/Flask</strong> - full-stack web applications, authentication systems</li>
+                            <li><strong>HTML/CSS/JavaScript</strong> - responsive modern web design, Bootstrap framework</li>
+                            <li><strong>RESTful APIs</strong> - web services creation</li>
+                            <li><strong>GUI Development</strong> - <span class="tech-tag">PYSIDE6/QT6</span> <span class="tech-tag">TKINTER</span> desktop applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ DATABASE & BACKEND TECHNOLOGIES</h4>
+                        <ul>
+                            <li><strong>Database Design</strong> - entity relationships, SQL management</li>
+                            <li><strong>Authentication Systems</strong> - data management, session handling, BCrypt encryption</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ SYSTEM & NETWORK ADMINISTRATION</h4>
+                        <ul>
+                            <li><strong>Operating Systems</strong> - Windows & Linux administration, security & filesystem management</li>
+                            <li>LAN design & implementation, router/switch configuration, VLAN management</li>
+                            <li><strong>Network Protocols</strong> - IPv4/IPv6, TCP/UDP, DNS, SSH, FTP/SFTP configuration</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>➢ CYBERSECURITY & PENETRATION TESTING</h4>
+                        <ul>
+                            <li><strong>Web Application Security</strong> - <span class="tech-tag">BURP SUITE</span> <span class="tech-tag">METASPLOIT</span> penetration testing</li>
+                            <li><strong>Network Protocol Analysis</strong> – <span class="tech-tag">WIRESHARK</span> <span class="tech-tag">SOCAT</span> <span class="tech-tag">SCAPY</span> <span class="tech-tag">HYDRA</span></li>
+                            <li><strong>Cryptographic Analysis</strong> – encryption algorithms, <span class="tech-tag">HASHCAT</span> <span class="tech-tag">JOHN THE RIPPER</span> passwords cracking</li>
+                        </ul>
+                    </div>
+                </section>
+
+                
+            </main>
         </div>
-      </header>
 
-<div class="main-content contact-layout">
-<aside class="sidebar">
-  <section class="section">
-    <div class="profile-image-wrapper">
-            <img
-        src="./assets/images/screen.png"
-        alt="Overlay Image"
-        class="overlay-image"
-        style="transform: scale(0.8); position: absolute; top: -40px; left: 20px; z-index: 1"
-      />
-      <img
-        src="./assets/images/vault-boy.gif"
-        alt="Profile Image"
-        class="profile-image"
-        style="transform: scale(0.65); position: absolute; top: -50px; left: 20px; z-index: 2"
-      />
-
-      <img
-        src="./assets/images/tv.png"
-        alt="Overlay Image"
-        class="overlay-image"
-        style="transform: scale(1); position: absolute; top: -40px; left: 20px; z-index: 4"
-      />
-                        <img
-        src="./assets/images/volume.png"
-        alt="Volume Knob"
-        class="overlay-image"
-        style="transform: scale(0.065); position: absolute; top: 150px; left: -165px; z-index: 5"
-      />
-                  <img
-        src="./assets/images/contrast.png"
-        alt="Contrast Knob"
-        class="overlay-image"
-        style="transform: scale(0.065); position: absolute; top: 161px; left: -87px; z-index: 5"
-      />
-                  <img
-        src="./assets/images/channel1.png"
-        alt="OreImage"
-        class="overlay-image"
-        style="transform: scale(0.065); position: absolute; top: 150px; left: 134px; z-index: 5"
-      />
-            <img
-        src="./assets/images/channel2.png"
-        alt="OvergerImage"
-        class="overlay-image"
-        style="transform: scale(0.065); position: absolute; top: 150px; left: 212px; z-index: 5"
-      />
+        <div class="footer-text">
+            © 2024 KS://CYBER_SITE. All rights reserved.
+        </div>
     </div>
-  </section>
-</aside>
 
-        <main class="content">
-          <section class="section">
-            <h2 data-translate="PERSONAL_INFO">[PERSONAL_INFO]</h2>
+    <script>
+        // Matrix effect for the background
+        const matrixBg = document.getElementById('matrix');
+        const columns = Math.floor(window.innerWidth / 20);
+        const drops = Array.from({ length: columns }).fill(0);
 
-            <div class="skill-category">
-              <h4 ➢ data-translate="MOTIVATION"></h4>
-              <div
-              >
-                <p
-                  data-translate="BACKGROUND_TEXT1">
-                </p>
-                <p
-                  data-translate="BACKGROUND_TEXT2">
-                </p>
-              </div>
-            </div>
+        function matrix() {
+            matrixBg.innerHTML = drops
+                .map((drop, i) => {
+                    const char = String.fromCharCode(Math.random() * 128);
+                    const style = `left:${i * 20}px; animation-delay:${Math.random() * 5}s`;
+                    drops[i] = drop > 25 ? 0 : drop + 1;
+                    return `<span style="${style}">${char}</span>`;
+                })
+                .join('');
+        }
 
-            <section class="section">
-            <h2 data-translate="ROADMAP">[ROADMAP]</h2>
-            <div class="skill-category">
-              <h4 ➢ data-translate="CURRENT_FOCUS">CURRENT FOCUS</h4>
+        setInterval(matrix, 50);
 
+        // Adjusting the scanner animation based on the screen height
+        const scanner = document.querySelector('.scanner');
+        const updateScanner = () => {
+            const height = window.innerHeight / 100;
+            scanner.style.height = `${height}px`;
+        };
 
-              <ul>
-                <li style="display: inline">
-                  <strong data-translate="Security"></strong>
-
-                <template
-                  style="display: inline"
-                  data-translate="Security_description"
-                ></template>                </li>
-              </ul>
-
-
-
-              <ul>
-                <li style="display: inline">
-                  <strong style="display: inline" data-translate="Automation"></strong>
-
-
-                <template
-                  style="display: inline"
-                  data-translate="Automation_description"
-                ></template>                </li>
-              </ul>
-
-              <ul>
-                <li style="display: inline">
-                  <strong data-translate="Data Science"></strong>
-
-                <template
-                  style="display: inline"
-                  data-translate="Data Science_description"
-                ></template>                </li>
-              </ul>
-
-                            <ul>
-                <li style="display: inline">
-                  <strong data-translate="Full-Stack Development"></strong>
-
-                <template
-                  style="display: inline"
-                  data-translate="Full-Stack Development_description"
-                ></template>                </li>
-              </ul>
-
-
-            </div>
-          </section>
-          
-        </main>
-      </div>
-
-      <div class="footer-text">
-        © 2024 ST48ERTech://CYBER_SITE. All rights reserved.
-      </div>
-    </div>
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-
-    <script src="assets/js/tv-channels.js"></script>
-  </body>
+        window.addEventListener('resize', updateScanner);
+        updateScanner();
+    </script>
+</body>
 </html>
