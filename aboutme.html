@@ -1,130 +1,699 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KS://CYBER_SITE - About Me</title>
-</head>
-<body>
-<div class="noise"></div>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WSPARCIE://CYBER_SITE</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icons/favicon_io/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/favicon_io/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="assets/css/social.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/aboutme.css" />
+    <link rel="stylesheet" href="assets/css/contact.css" />
+
+    <link rel="stylesheet" href="assets/css/translation.css" />
+    <link rel="stylesheet" href="assets/css/dark-mode.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00ff00" />
+    <meta
+      name="description"
+      content="Cybersecurity student passionate about programming, web development, and data analysis. Seeking internship opportunities in IT and cybersecurity."
+    />
+  </head>
+  <body>
+    <!-- Social Media Sidebar -->
+    <div class="social-sidebar">
+      <a
+        href="https://github.com/wsparcie"
+        target="_blank"
+        class="social-icon"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github"></i>
+        <span class="social-tooltip">GitHub</span>
+      </a>
+      <a
+        href="https://linkedin.com/in/"
+        target="_blank"
+        class="social-icon"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in"></i>
+        <span class="social-tooltip">LinkedIn</span>
+      </a>
+      <a
+        href="https://twitter.com/"
+        target="_blank"
+        class="social-icon"
+        aria-label="Twitter"
+      >
+        <i class="fab fa-twitter"></i>
+        <span class="social-tooltip">Twitter</span>
+      </a>
+      <a
+        href="https://youtube.com/"
+        target="_blank"
+        class="social-icon"
+        aria-label="YouTube"
+      >
+        <i class="fab fa-youtube"></i>
+        <span class="social-tooltip">YouTube</span>
+      </a>
+      <a
+        href="https://discord.gg/"
+        target="_blank"
+        class="social-icon"
+        aria-label="Discord"
+      >
+        <i class="fab fa-discord"></i>
+        <span class="social-tooltip">Discord</span>
+      </a>
+      <a
+        href="https://facebook.com/"
+        target="_blank"
+        class="social-icon"
+        aria-label="Facebook"
+      >
+        <i class="fab fa-facebook-f"></i>
+        <span class="social-tooltip">Facebook</span>
+      </a>
+      <a
+        href="https://wa.me/"
+        target="_blank"
+        class="social-icon"
+        aria-label="WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+        <span class="social-tooltip">WhatsApp</span>
+      </a>
+      <a
+        href="https://signal.me/"
+        target="_blank"
+        class="social-icon"
+        aria-label="Signal"
+      >
+        <i class="fas fa-comment-dots"></i>
+        <span class="social-tooltip">Signal</span>
+      </a>
+      <a href="mailto:your@email.com" class="social-icon" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+        <span class="social-tooltip">Email</span>
+      </a>
+    </div>
+    <div class="noise"></div>
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
-    
+
     <div class="container">
-        <div class="corner-element top-left"></div>
-        <div class="corner-element top-right"></div>
-        <div class="corner-element bottom-left"></div>
-        <div class="corner-element bottom-right"></div>
-        
-        <header>
-            <div class="glitch"></div>
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
-                <h1 data-text="WSPARCIE" style="margin-bottom: 0;">WSPARCIE</h1>
+      <div class="corner-element top-left"></div>
+      <div class="corner-element top-right"></div>
+      <div class="corner-element bottom-left"></div>
+      <div class="corner-element bottom-right"></div>
 
-            <!-- Navigation Bar -->
-            <nav class="nav-bar">
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-item">HOME</a>
-                    <a href="aboutme.html" class="nav-item active">ABOUT_ME</a>
-                    <a href="projects.html" class="nav-item">PROJECTS</a>
-                </div>
+      <header>
+        <div class="glitch"></div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+          "
+        >
+          <div
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <h1>
+              <img
+                src="assets/images/wsparcie.png"
+                alt=""
+                style="transform: scale(1.15) translateX(10%) translateY(10%)"
+              />
+            </h1>
+
+            <!-- Enhanced Navigation Bar -->
+            <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+              <div class="nav-menu" id="nav-menu">
+                <a
+                  href="index.html"
+                  class="nav-item active"
+                  data-translate="HOME"
+                  aria-current="page"
+                  >HOME</a
+                >
+                <a
+                  href="aboutme.html"
+                  class="nav-item"
+                  data-translate="ABOUT_ME"
+                  >ABOUT_ME</a
+                >
+                <a
+                  href="projects.html"
+                  class="nav-item"
+                  data-translate="PROJECTS"
+                  >PROJECTS</a
+                >
+                <a href="blog.html" class="nav-item" data-translate="BLOG"
+                  >BLOG</a
+                >
+                <a href="contact.html" class="nav-item" data-translate="CONTACT"
+                  >CONTACT</a
+                >
+              </div>
             </nav>
+          </div>
 
-                <div class="contact-info" style="margin-bottom: 0;">
-                    <span><a href="https://github.com/wsparcie" target="_blank">⚡ github.com/wsparcie</a></span>
-                </div>
+          <!-- GitHub link moved here to appear on the right -->
+          <div class="contact-info" style="margin-bottom: 0; display: flex; gap: 20px; align-items: center;">
+            <span
+              ><a
+                href="https://github.com/wsparcie"
+                target="_blank"
+                aria-label="Visit GitHub profile"
+                >⚡ github.com/wsparcie ⚡</a
+              ></span
+            >
+          </div>
+        </div>
+      </header>
+
+      <div class="main-content" id="main-content">
+        <aside class="sidebar" role="complementary">
+          <section class="section">
+            <h2 data-translate="EDUCATION">[EDUCATION]</h2>
+            <div class="education-block">
+              <h4 data-translate="Wroclaw University of Science and Technology">
+                Wroclaw University of Science and Technology
+              </h4>
+              <p data-translate="INITIALIZED: 2024">INITIALIZED: 2024</p>
+              <p
+                data-translate="FACULTY: Information and Communication Technology"
+              >
+                FACULTY: Information and Communication Technology
+              </p>
+              <p>
+                <strong data-translate="SPECIALIZATION: Cybersceurity"
+                  >SPECIALIZATION: Cybersecurity</strong
+                >
+              </p>
             </div>
-        </header>
+            <div class="education-block">
+              <h4 data-translate="University of Warsaw">
+                University of Warsaw
+              </h4>
+              <p data-translate="INITIALIZED: 2023 - 2024">
+                INITIALIZED: 2023 - 2024
+              </p>
+              <p
+                data-translate="FACULTY: Mathematics, Informatics and Mechanics"
+              >
+                FACULTY: Mathematics, Informatics and Mechanics
+              </p>
+              <p>
+                <strong data-translate="SPECIALIZATION: Computer Science"
+                  >SPECIALIZATION: Computer Science</strong
+                >
+              </p>
+            </div>
+            <div class="education-block">
+              <h4 data-translate="LANGUAGES">LANGUAGES</h4>
+              <p>English <span class="language-level">B2/C1</span></p>
+              <p>German <span class="language-level">B1/B2</span></p>
+            </div>
+            <div class="education-block">
+              <h4 data-translate="CERTIFICATES">CERTIFICATES</h4>
+              <p>
+                CCNA
+                <span class="certificate-details"
+                  >Introduction to Networks</span
+                >
+              </p>
+            </div>
+          </section>
+        </aside>
 
-        <div class="main-content">
-            <aside class="sidebar">
-                <section class="section">
-                    <h2>[PERSONAL_INFO]</h2>
-                    
-                    <div class="skill-category">
-                        <h4>➢ BACKGROUND & MOTIVATION</h4>
-                        <div style="padding: 15px; background: #000; border: 2px solid #00ff00; margin: 10px 0;">
-                            <p style="color: #00ff00; line-height: 1.5; margin-bottom: 15px;">
-                                I'm a passionate student with a love for creating practical solutions and exploring different aspects of programming.
-                                Currently pursuing a degree in <strong>Cybersecurity</strong> at <strong>Wroclaw University of Science and Technology</strong>.
-                                My passion for technology and security drives me to continuously expand my knowledge through hands-on projects
-                                and self-directed learning.
-                            </p>
-                            <p style="color: #00ff00; line-height: 1.5; margin-bottom: 15px;">
-                                I thrive in challenging environments where I can apply both theoretical knowledge and practical skills 
-                                to solve complex problems. My goal is to contribute to the cybersecurity field while continuously 
-                                growing as a programmer.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </aside>
+        <main class="content" role="main">
+          <section class="section">
+            <link rel="stylesheet" href="assets/css/drawer.css" />
+            <h2>[SKILLS]</h2>
+            <div class="skills-container">
+              <div class="skill-category" data-category="programming">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ PROGRAMMING & SOFTWARE DEVELOPMENT</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Python</strong> - Advanced scripting, automation,
+                      data analysis, machine learning frameworks
+                    </li>
+                    <li>
+                      <strong>C++, C#</strong> - System programming, game
+                      development, enterprise applications
+                    </li>
+                    <li>
+                      <strong>JavaScript</strong> - Full-stack web development,
+                      Node.js, modern frameworks
+                    </li>
+                    <li>
+                      <strong>Bash, PowerShell</strong> - System administration,
+                      automation, DevOps scripting
+                    </li>
+                    <li>
+                      <strong>Docker</strong> - Containerization, deployment,
+                      microservices architecture
+                    </li>
+                    <li>
+                      <strong>Version Control</strong> - Git workflows,
+                      collaborative development, CI/CD
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-            <main class="content">
-                <section class="section">
-                    <h2>[ROADMAP]</h2>
-                    <div class="skill-category">
-                        <h4>➢ CURRENT FOCUS</h4>
-                        <ul>
-                            <li><strong>Security</strong> - staying updated with latest threats and defense mechanisms</li>
-                            <li><strong>Automation</strong> - creating interactive experiences and procedural content</li>
-                            <li><strong>Data Science</strong> - participating in community-driven projects</li>
-                            <li><strong>Automation</strong> - building tools to streamline workflows and processes</li>
-                            <li><strong>Full-Stack Development</strong> - exploring penetration testing and vulnerability assessment</li>
-                        </ul>
-                    </div>
+              <div class="skill-category" data-category="data">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ DATA ANALYSIS & SCIENCE</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Data Processing</strong> - Pandas, NumPy,
+                      statistical analysis, ETL pipelines
+                    </li>
+                    <li>
+                      <strong>Data Visualization</strong> - Matplotlib, Plotly,
+                      interactive dashboards
+                    </li>
+                    <li>
+                      <strong>Web Scraping</strong> - BeautifulSoup, Scrapy, API
+                      integration, data mining
+                    </li>
+                    <li>
+                      <strong>OCR & Image Processing</strong> - Tesseract,
+                      OpenCV, document digitization
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-                    <div class="skill-category">
-                        <h4>➢ PHILOSOPHY & APPROACH</h4>
-                        <div style="padding: 15px; background: #000; border: 2px solid #ff0000; margin: 10px 0;">
-                            <p style="color: #ff0000; line-height: 1.5; margin-bottom: 10px; font-weight: bold;">
-                                "Security is not a product, but a process."
-                            </p>
-                            <p style="color: #00ff00; line-height: 1.5;">
-                                I believe in continuous learning and building secure systems 
-                                from the ground up. Every vulnerability is an opportunity to strengthen defenses and 
-                                improve overall security posture.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
+              <div class="skill-category" data-category="web">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ WEB TECHNOLOGIES & FRONTEND</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Django/Flask</strong> - Full-stack web
+                      applications, REST APIs, authentication
+                    </li>
+                    <li>
+                      <strong>HTML/CSS/JavaScript</strong> - Responsive design,
+                      modern CSS, ES6+
+                    </li>
+                    <li>
+                      <strong>RESTful APIs</strong> - API design, documentation,
+                      integration, testing
+                    </li>
+                    <li>
+                      <strong>GUI Development</strong> - Desktop applications,
+                      user interface design
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-        <div class="footer-text">
-            © 2024 KS://CYBER_SITE. All rights reserved.
-        </div>
+              <div class="skill-category" data-category="database">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ DATABASE & BACKEND TECHNOLOGIES</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Database Design</strong> - SQL, NoSQL,
+                      optimization, data modeling
+                    </li>
+                    <li>
+                      <strong>Authentication Systems</strong> - OAuth, JWT,
+                      session management, security
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-category" data-category="system">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ SYSTEM & NETWORK ADMINISTRATION</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Operating Systems</strong> - Linux administration,
+                      Windows Server, virtualization
+                    </li>
+                    <li>
+                      <strong>Networks</strong> - TCP/IP, routing protocols,
+                      network troubleshooting, CCNA certified
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-category" data-category="cybersecurity">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ CYBERSECURITY & PENETRATION TESTING</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>
+                      <strong>Web Application Security</strong> - OWASP Top 10,
+                      vulnerability assessment, secure coding
+                    </li>
+                    <li>
+                      <strong>Network Protocol Analysis</strong> - Wireshark,
+                      traffic analysis, intrusion detection
+                    </li>
+                    <li>
+                      <strong>Cryptographic Analysis</strong> - Encryption
+                      algorithms, security protocols, key management
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <script>
+            let audioContext = null
+            const audioBuffers = {}
+
+            const soundFiles = {
+              paperFlip: './assets/sounds/paper_flip.mp3',
+            }
+
+            // Initialize audio context and load sounds
+            async function initAudio() {
+              try {
+                audioContext = new (window.AudioContext ||
+                  window.webkitAudioContext)()
+
+                // Try to load external sound files (optional)
+                for (const [soundName, soundPath] of Object.entries(
+                  soundFiles
+                )) {
+                  try {
+                    const response = await fetch(soundPath)
+                    const arrayBuffer = await response.arrayBuffer()
+                    const audioBuffer = await audioContext.decodeAudioData(
+                      arrayBuffer
+                    )
+                    audioBuffers[soundName] = audioBuffer
+                    console.log(`Loaded external sound: ${soundName}`)
+                  } catch (error) {
+                    // Silently fail - we'll use procedural sounds instead
+                    console.log(`Using procedural sound for: ${soundName}`)
+                  }
+                }
+
+                console.log(
+                  'Audio system initialized - using procedural sounds for missing files'
+                )
+              } catch (error) {
+                console.warn('Audio initialization failed:', error)
+              }
+            }
+
+            // Play sound function with procedural fallback
+            function playSound(soundName, volume = 0.5) {
+              if (!audioContext) {
+                // Try to initialize audio context if it doesn't exist
+                try {
+                  initAudio()
+                } catch (e) {
+                  console.warn('Cannot play sound: audio context not available')
+                  return
+                }
+              }
+
+              // Resume audio context if suspended (browser autoplay policy)
+              if (audioContext.state === 'suspended') {
+                audioContext.resume()
+              }
+
+              // Use external sound if available, otherwise use procedural sound
+              if (audioBuffers[soundName]) {
+                try {
+                  const source = audioContext.createBufferSource()
+                  const gainNode = audioContext.createGain()
+
+                  source.buffer = audioBuffers[soundName]
+                  gainNode.gain.value = volume
+
+                  source.connect(gainNode)
+                  gainNode.connect(audioContext.destination)
+
+                  source.start(0)
+                  console.log(`Playing external sound: ${soundName}`)
+                } catch (error) {
+                  console.warn(
+                    `Failed to play external sound: ${soundName}`,
+                    error
+                  )
+                }
+              }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+              // ... rest of your DOMContentLoaded code remains the same
+              const skillCategories =
+                document.querySelectorAll('.skill-category')
+
+              skillCategories.forEach((category) => {
+                const tab = category.querySelector('.skill-drawer-tab')
+                const content = category.querySelector('.skill-drawer-content')
+
+                // Click handler
+                tab.addEventListener('click', function () {
+                  toggleSkillCategory(category, tab, content)
+                })
+
+                // Keyboard handler
+                tab.addEventListener('keydown', function (e) {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    toggleSkillCategory(category, tab, content)
+                  }
+                })
+
+                // Enhanced hover effects
+                category.addEventListener('mouseenter', function () {
+                  if (!category.classList.contains('expanded')) {
+                    category.style.transform = 'translateX(5px)'
+                  }
+                })
+
+                category.addEventListener('mouseleave', function () {
+                  if (!category.classList.contains('expanded')) {
+                    category.style.transform = 'translateX(-10px)'
+                  }
+                })
+              })
+
+              function toggleSkillCategory(category, tab, content) {
+                const isExpanded = category.classList.contains('expanded')
+
+                // Close all other categories first
+                skillCategories.forEach((otherCategory) => {
+                  if (otherCategory !== category) {
+                    otherCategory.classList.remove('expanded')
+                    const otherTab =
+                      otherCategory.querySelector('.skill-drawer-tab')
+                    const otherContent = otherCategory.querySelector(
+                      '.skill-drawer-content'
+                    )
+                    otherTab.setAttribute('aria-expanded', 'false')
+
+                    // Reset list animations
+                    const otherItems = otherContent.querySelectorAll('li')
+                    otherItems.forEach((item) => {
+                      item.style.animation = 'none'
+                      item.style.opacity = '0'
+                      item.style.transform = 'translateX(-20px)'
+                    })
+                  }
+                })
+
+                // Toggle current category
+                if (!isExpanded) {
+                  category.classList.add('expanded')
+                  tab.setAttribute('aria-expanded', 'true')
+
+                  // Trigger animation for list items
+                  setTimeout(() => {
+                    const items = content.querySelectorAll('li')
+                    items.forEach((item, index) => {
+                      item.style.animation = `slideInRight 0.4s ease ${
+                        (index + 1) * 0.1
+                      }s forwards`
+                    })
+                  }, 100)
+
+                  // Audio feedback (if you want to add sound effects)
+                  playSound('paperFlip', 0.5)
+                } else {
+                  category.classList.remove('expanded')
+                  tab.setAttribute('aria-expanded', 'false')
+
+                  // Reset list animations
+                  const items = content.querySelectorAll('li')
+                  items.forEach((item) => {
+                    item.style.animation = 'none'
+                    item.style.opacity = '0'
+                    item.style.transform = 'translateX(-20px)'
+                  })
+                }
+              }
+
+              // Optional: Audio feedback function
+
+              // Auto-expand first category on load (optional)
+              // setTimeout(() => {
+              //     const firstCategory = skillCategories[0];
+              //     if (firstCategory) {
+              //         const firstTab = firstCategory.querySelector('.skill-drawer-tab');
+              //         const firstContent = firstCategory.querySelector('.skill-drawer-content');
+              //         toggleSkillCategory(firstCategory, firstTab, firstContent);
+              //     }
+              // }, 500);
+
+              // Close categories when clicking outside
+              document.addEventListener('click', function (e) {
+                if (!e.target.closest('.skill-category')) {
+                  skillCategories.forEach((category) => {
+                    category.classList.remove('expanded')
+                    const tab = category.querySelector('.skill-drawer-tab')
+                    const content = category.querySelector(
+                      '.skill-drawer-content'
+                    )
+                    tab.setAttribute('aria-expanded', 'false')
+
+                    // Reset animations
+                    const items = content.querySelectorAll('li')
+                    items.forEach((item) => {
+                      item.style.animation = 'none'
+                      item.style.opacity = '0'
+                      item.style.transform = 'translateX(-20px)'
+                    })
+                  })
+                }
+              })
+
+              // Add typing effect to security stamps
+              function addTypingEffect() {
+                const stamps = document.querySelectorAll(
+                  '.skill-drawer-content::before'
+                )
+                stamps.forEach((stamp) => {
+                  // This would require additional DOM manipulation for a real typing effect
+                  // For now, the CSS animation handles the reveal
+                })
+              }
+
+              // Performance optimization: Use requestAnimationFrame for smooth animations
+              let ticking = false
+
+              function updateAnimations() {
+                // Handle any continuous animations here
+                ticking = false
+              }
+
+              function requestTick() {
+                if (!ticking) {
+                  requestAnimationFrame(updateAnimations)
+                  ticking = true
+                }
+              }
+
+              // Initialize any additional effects
+              addTypingEffect()
+            })
+          </script>
+        </main>
+      </div>
+
+      <footer
+        class="footer-text"
+        data-translate="© 2024 WSPARCIE://CYBER_SITE. All rights reserved."
+      >
+        © 2024 WSPARCIE://CYBER_SITE. All rights reserved.
+      </footer>
     </div>
 
-    <script>
-        // Matrix effect for the background
-        const matrixBg = document.getElementById('matrix');
-        const columns = Math.floor(window.innerWidth / 20);
-        const drops = Array.from({ length: columns }).fill(0);
-
-        function matrix() {
-            matrixBg.innerHTML = drops
-                .map((drop, i) => {
-                    const char = String.fromCharCode(Math.random() * 128);
-                    const style = `left:${i * 20}px; animation-delay:${Math.random() * 5}s`;
-                    drops[i] = drop > 25 ? 0 : drop + 1;
-                    return `<span style="${style}">${char}</span>`;
-                })
-                .join('');
-        }
-
-        setInterval(matrix, 50);
-
-        // Adjusting the scanner animation based on the screen height
-        const scanner = document.querySelector('.scanner');
-        const updateScanner = () => {
-            const height = window.innerHeight / 100;
-            scanner.style.height = `${height}px`;
-        };
-
-        window.addEventListener('resize', updateScanner);
-        updateScanner();
-    </script>
-</body>
+    <!-- Enhanced Scripts -->
+    <script src="assets/js/sw.js"></script>
+    <script src="assets/js/simple-translations.js"></script>
+    <script src="assets/js/theme-switcher.js"></script>
+  </body>
 </html>
