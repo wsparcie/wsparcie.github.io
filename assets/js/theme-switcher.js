@@ -68,9 +68,9 @@ class ThemeSwitcher {
 
   updateButtonText(button) {
     if (this.currentTheme === 'dark') {
-      button.innerHTML = '<i class="fas fa-sun"></i> <span>LIGHT</span>'
+      button.innerHTML = '<i class="fas fa-sun"></i>'
     } else {
-      button.innerHTML = '<i class="fas fa-moon"></i> <span>DARK</span>'
+      button.innerHTML = '<i class="fas fa-moon"></i>'
     }
   }
 

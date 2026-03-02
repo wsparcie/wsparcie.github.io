@@ -283,11 +283,7 @@ function switchLanguage() {
       // Update existing button text (if any)
       const buttons = document.querySelectorAll('.language-switcher')
       buttons.forEach((button) => {
-        if (newLang === 'pl') {
-          button.innerHTML = '<i class="fas fa-language"></i> ENGLISH'
-        } else {
-          button.innerHTML = '<i class="fas fa-language"></i> POLSKI'
-        }
+        button.innerHTML = '<i class="fas fa-language"></i>'
       })
 
       // Update floating translation button
@@ -355,9 +351,9 @@ function createFloatingTranslationSwitcher(currentLang) {
 // Update floating button text
 function updateFloatingButtonText(button, lang) {
   if (lang === 'pl') {
-    button.innerHTML = '<i class="fas fa-language"></i> <span>ENGLISH</span>'
+    button.innerHTML = '<i class="fas fa-language"></i>'
   } else {
-    button.innerHTML = '<i class="fas fa-language"></i> <span>POLSKI</span>'
+    button.innerHTML = '<i class="fas fa-language"></i>'
   }
 }
 
