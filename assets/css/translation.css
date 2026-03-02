@@ -66,11 +66,6 @@
   color: var(--text-secondary); /* Will be #000000 in light mode */
 }
 
-[data-theme='light'] h1:hover,
-[data-theme='light'] .title-name:hover {
-  color: var(--text-accent); /* Will be #0066cc in light mode */
-}
-
 /* Apply theme variables to existing styles */
 body {
   background: var(--bg-primary);
@@ -80,7 +75,8 @@ body {
 .container {
   background: var(--bg-secondary);
   border-color: var(--border-primary);
-  box-shadow: 0 0 100px var(--shadow-primary),
+  box-shadow:
+    0 0 100px var(--shadow-primary),
     inset 0 0 100px var(--shadow-primary);
 }
 
@@ -114,7 +110,9 @@ header {
 
 h1 {
   color: var(--text-secondary);
-  text-shadow: 2px 2px 0 var(--text-primary), -2px -2px 0 var(--text-accent),
+  text-shadow:
+    2px 2px 0 var(--text-primary),
+    -2px -2px 0 var(--text-accent),
     0 0 20px var(--shadow-primary);
 }
 
@@ -141,11 +139,15 @@ h1 {
 h2 {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 5px 5px 0 var(--bg-secondary), 10px 10px 0 var(--text-primary);
+  box-shadow:
+    5px 5px 0 var(--bg-secondary),
+    10px 10px 0 var(--text-primary);
 }
 
 h2:hover {
-  box-shadow: -5px 5px 0 var(--bg-secondary), -10px 10px 0 var(--text-accent);
+  box-shadow:
+    -5px 5px 0 var(--bg-secondary),
+    -10px 10px 0 var(--text-accent);
 }
 
 h3 {
@@ -161,7 +163,9 @@ h3 {
 
 .skill-category:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 30px var(--shadow-accent), inset 0 0 30px var(--shadow-accent);
+  box-shadow:
+    0 0 30px var(--shadow-accent),
+    inset 0 0 30px var(--shadow-accent);
 }
 
 .skill-category h4 {
@@ -202,7 +206,9 @@ li::before {
 
 .achievement-item:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 50px var(--shadow-accent), inset 0 0 50px var(--shadow-accent);
+  box-shadow:
+    0 0 50px var(--shadow-accent),
+    inset 0 0 50px var(--shadow-accent);
 }
 
 .achievement-item a {
@@ -282,7 +288,9 @@ li::before {
 .tech-tag:hover {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 0 0 20px var(--shadow-primary), -5px 5px 0 var(--bg-secondary);
+  box-shadow:
+    0 0 20px var(--shadow-primary),
+    -5px 5px 0 var(--bg-secondary);
 }
 
 /* Contact page styles */
@@ -407,29 +415,6 @@ li::before {
   border-color: var(--border-primary);
 }
 
-/* Theme switcher button styles */
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-  color: var(--text-primary);
-  padding: 10px 15px;
-  font-family: 'Courier New', monospace;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.theme-switcher:hover {
-  background: var(--text-primary);
-  color: var(--bg-secondary);
-  box-shadow: 0 0 20px var(--shadow-primary);
-}
-
 /* Accessibility improvements for light mode */
 [data-theme='light'] *::selection {
   background: var(--text-primary);
@@ -446,16 +431,6 @@ li::before {
   [data-theme='light'] .container {
     border-color: #000 !important;
     box-shadow: none !important;
-  }
-}
-
-/* Mobile responsiveness for theme switcher */
-@media (max-width: 768px) {
-  .theme-switcher {
-    top: 10px;
-    right: 10px;
-    padding: 8px 12px;
-    font-size: 12px;
   }
 }
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link
@@ -31,6 +31,12 @@
     <link rel="stylesheet" href="assets/css/aboutme.css" />
     <link rel="stylesheet" href="assets/css/contact.css" />
 
+    <script>
+      ;(function () {
+        var t = localStorage.getItem('theme') || 'light'
+        document.documentElement.setAttribute('data-theme', t)
+      })()
+    </script>
     <link rel="stylesheet" href="assets/css/translation.css" />
     <link rel="stylesheet" href="assets/css/dark-mode.css" />
     <link rel="manifest" href="manifest.json" />
@@ -41,7 +47,6 @@
     />
   </head>
   <body>
-    <!-- Social Media Sidebar -->
     <div class="social-sidebar">
       <a
         href="https://github.com/wsparcie"
@@ -124,6 +129,17 @@
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
 
+    <button
+      class="scroll-top-btn"
+      id="scrollTopBtn"
+      aria-label="Scroll to top"
+      title="Scroll to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-chevron-up"></i>
+      <span>TOP</span>
+    </button>
+
     <div class="container">
       <div class="corner-element top-left"></div>
       <div class="corner-element top-right"></div>
@@ -151,14 +167,9 @@
               />
             </h1>
 
-            <!-- Enhanced Navigation Bar -->
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
               <div class="nav-menu" id="nav-menu">
-                <a
-                  href="index.html"
-                  class="nav-item active"
-                  data-translate="HOME"
-                  aria-current="page"
+                <a href="index.html" class="nav-item" data-translate="HOME"
                   >HOME</a
                 >
                 <a
@@ -176,21 +187,40 @@
                 <a href="blog.html" class="nav-item" data-translate="BLOG"
                   >BLOG</a
                 >
-                <a href="contact.html" class="nav-item" data-translate="CONTACT"
+                <a
+                  href="contact.html"
+                  class="nav-item active"
+                  data-translate="CONTACT"
+                  aria-current="page"
                   >CONTACT</a
                 >
               </div>
             </nav>
           </div>
 
-          <!-- GitHub link moved here to appear on the right -->
-          <div class="contact-info" style="margin-bottom: 0; display: flex; gap: 20px; align-items: center;">
+          <div
+            class="contact-info"
+            style="
+              margin-bottom: 0;
+              display: flex;
+              gap: 20px;
+              align-items: center;
+            "
+          >
             <span
               ><a
-                href="https://github.com/wsparcie"
+                href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
                 target="_blank"
-                aria-label="Visit GitHub profile"
-                >⚡ github.com/wsparcie ⚡</a
+                aria-label="Download CV in Polish"
+                >⚡ CV 🇵🇱</a
+              ></span
+            >
+            <span
+              ><a
+                href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
+                target="_blank"
+                aria-label="Download CV in English"
+                >⚡ CV 🇬🇧</a
               ></span
             >
           </div>

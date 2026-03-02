@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="assets/css/aboutme.css" />
     <link rel="stylesheet" href="assets/css/contact.css" />
 
+    <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
     <link rel="stylesheet" href="assets/css/translation.css" />
     <link rel="stylesheet" href="assets/css/dark-mode.css" />
 
@@ -43,7 +44,6 @@
     />
   </head>
   <body>
-    <!-- Social Media Sidebar -->
     <div class="social-sidebar">
       <a
         href="https://github.com/wsparcie"
@@ -55,7 +55,7 @@
         <span class="social-tooltip">GitHub</span>
       </a>
       <a
-        href="https://linkedin.com/in/"
+        href="https://www.linkedin.com/in/kamil-sztabert-8b5b70389"
         target="_blank"
         class="social-icon"
         aria-label="LinkedIn"
@@ -82,13 +82,13 @@
         <span class="social-tooltip">YouTube</span>
       </a>
       <a
-        href="https://discord.gg/"
+        href="https://discord.com/users/809499074968682526"
         target="_blank"
         class="social-icon"
         aria-label="Discord"
       >
         <i class="fab fa-discord"></i>
-        <span class="social-tooltip">Discord</span>
+        <span class="social-tooltip">wsparcie_dev</span>
       </a>
       <a
         href="https://facebook.com/"
@@ -122,9 +122,17 @@
         <span class="social-tooltip">Email</span>
       </a>
     </div>
+
+
+
     <div class="noise"></div>
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <i class="fas fa-chevron-up"></i>
+      <span>TOP</span>
+    </button>
 
     <div class="container">
       <div class="corner-element top-left"></div>
@@ -153,7 +161,6 @@
               />
             </h1>
 
-            <!-- Enhanced Navigation Bar -->
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
               <div class="nav-menu" id="nav-menu">
                 <a
@@ -185,16 +192,9 @@
             </nav>
           </div>
 
-          <!-- GitHub link moved here to appear on the right -->
           <div class="contact-info" style="margin-bottom: 0; display: flex; gap: 20px; align-items: center;">
-            <span
-              ><a
-                href="https://github.com/wsparcie"
-                target="_blank"
-                aria-label="Visit GitHub profile"
-                >⚡ github.com/wsparcie ⚡</a
-              ></span
-            >
+            <span><a href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing" target="_blank" aria-label="Download CV in Polish">⚡ CV 🇵🇱</a></span>
+            <span><a href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing" target="_blank" aria-label="Download CV in English">⚡ CV 🇬🇧</a></span>
           </div>
         </div>
       </header>
@@ -263,6 +263,9 @@
                 <p data-translate="BACKGROUND_TEXT2">
                   I thrive in challenging environments where I can apply both theoretical knowledge and practical skills to solve complex problems. My goal is to contribute to the cybersecurity field while continuously growing as a programmer.
                 </p>
+                <p data-translate="BACKGROUND_TEXT3">
+                  Member of the strategic Solvro Science Club at the WUST. Both work and a summer internship in the field of IT would be an ideal opportunity to use the practical and theoretical skills I have acquired so far, both as part of my engineering studies and self-development.
+                </p>
               </div>
             </div>
 
@@ -274,25 +277,25 @@
               <ul>
                 <li>
                   <strong data-translate="Security">Security</strong>
-                  <span style="margin-left: 10px; color: rgba(255, 255, 255, 0.7)" data-translate="Security_description">
+                  <span style="margin-left: 10px; color: var(--text-primary); opacity: 0.75" data-translate="Security_description">
                     — staying updated with latest threats and defense mechanisms
                   </span>
                 </li>
                 <li>
                   <strong data-translate="Automation">Automation</strong>
-                  <span style="margin-left: 10px; color: rgba(255, 255, 255, 0.7)" data-translate="Automation_description">
+                  <span style="margin-left: 10px; color: var(--text-primary); opacity: 0.75" data-translate="Automation_description">
                     — creating interactive experiences and procedural content
                   </span>
                 </li>
                 <li>
                   <strong data-translate="Data Science">Data Science</strong>
-                  <span style="margin-left: 10px; color: rgba(255, 255, 255, 0.7)" data-translate="Data Science_description">
+                  <span style="margin-left: 10px; color: var(--text-primary); opacity: 0.75" data-translate="Data Science_description">
                     — participating in community-driven projects
                   </span>
                 </li>
                 <li>
                   <strong data-translate="Full-Stack Development">Full-Stack Development</strong>
-                  <span style="margin-left: 10px; color: rgba(255, 255, 255, 0.7)" data-translate="Full-Stack Development_description">
+                  <span style="margin-left: 10px; color: var(--text-primary); opacity: 0.75" data-translate="Full-Stack Development_description">
                     — exploring penetration testing and vulnerability assessment
                   </span>
                 </li>

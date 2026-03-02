@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link
@@ -11,11 +11,8 @@
     <link
       rel="icon"
       type="image/png"
-      si    <script src="assets/js/simple-translations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="assets/js/github-widget.js"></script>
-  </body>
-</html>   href="assets/icons/favicon_io/favicon-32x32.png"
+      sizes="32x32"
+      href="assets/icons/favicon_io/favicon-32x32.png"
     />
     <link
       rel="icon"
@@ -34,6 +31,12 @@
     <link rel="stylesheet" href="assets/css/aboutme.css" />
     <link rel="stylesheet" href="assets/css/contact.css" />
 
+    <script>
+      ;(function () {
+        var t = localStorage.getItem('theme') || 'light'
+        document.documentElement.setAttribute('data-theme', t)
+      })()
+    </script>
     <link rel="stylesheet" href="assets/css/translation.css" />
     <link rel="stylesheet" href="assets/css/dark-mode.css" />
     <link rel="manifest" href="manifest.json" />
@@ -44,7 +47,6 @@
     />
   </head>
   <body>
-    <!-- Social Media Sidebar -->
     <div class="social-sidebar">
       <a
         href="https://github.com/wsparcie"
@@ -127,6 +129,17 @@
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
 
+    <button
+      class="scroll-top-btn"
+      id="scrollTopBtn"
+      aria-label="Scroll to top"
+      title="Scroll to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-chevron-up"></i>
+      <span>TOP</span>
+    </button>
+
     <div class="container">
       <div class="corner-element top-left"></div>
       <div class="corner-element top-right"></div>
@@ -154,14 +167,9 @@
               />
             </h1>
 
-            <!-- Enhanced Navigation Bar -->
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
               <div class="nav-menu" id="nav-menu">
-                <a
-                  href="index.html"
-                  class="nav-item active"
-                  data-translate="HOME"
-                  aria-current="page"
+                <a href="index.html" class="nav-item" data-translate="HOME"
                   >HOME</a
                 >
                 <a
@@ -172,8 +180,9 @@
                 >
                 <a
                   href="projects.html"
-                  class="nav-item"
+                  class="nav-item active"
                   data-translate="PROJECTS"
+                  aria-current="page"
                   >PROJECTS</a
                 >
                 <a href="blog.html" class="nav-item" data-translate="BLOG"
@@ -186,14 +195,29 @@
             </nav>
           </div>
 
-          <!-- GitHub link moved here to appear on the right -->
-          <div class="contact-info" style="margin-bottom: 0; display: flex; gap: 20px; align-items: center;">
+          <div
+            class="contact-info"
+            style="
+              margin-bottom: 0;
+              display: flex;
+              gap: 20px;
+              align-items: center;
+            "
+          >
             <span
               ><a
-                href="https://github.com/wsparcie"
+                href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
                 target="_blank"
-                aria-label="Visit GitHub profile"
-                >⚡ github.com/wsparcie ⚡</a
+                aria-label="Download CV in Polish"
+                >⚡ CV 🇵🇱</a
+              ></span
+            >
+            <span
+              ><a
+                href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
+                target="_blank"
+                aria-label="Download CV in English"
+                >⚡ CV 🇬🇧</a
               ></span
             >
           </div>
@@ -209,18 +233,48 @@
               <span
                 style="color: #ff0000"
                 data-translate="STATUS: COMPLETED & PUBLISHED"
-              >STATUS: COMPLETED & PUBLISHED</span
+                >STATUS: COMPLETED & PUBLISHED</span
               ><br />
               <span data-translate="PROJECT: SOCIAL IMPACT_description">
-                > Ecological computer game project Garbage Can, organized by Zwolnieni z Teorii foundation
-              </span><br />
-              <span style="color: #00ff00" data-translate="CONTRIBUTION">CONTRIBUTION</span
+                > Ecological computer game project Garbage Can, organized by
+                Zwolnieni z Teorii foundation (i.a. procedurally generated
+                building models using Geometry Nodes). </span
+              ><br />
+              <span style="color: #00ff00" data-translate="CONTRIBUTION"
+                >CONTRIBUTION</span
               ><br />
               <a
                 href="https://garbage-can.itch.io/garbage-can"
                 target="_blank"
                 data-translate="PLAY_GAME"
-              >[PLAY GAME]</a>
+                >[PLAY GAME]</a
+              >
+            </div>
+
+            <div class="achievement-item">
+              <strong data-translate="PROJECT: APARTMENTEER"
+                >[PROJECT: APARTMENTEER]</strong
+              ><br />
+              <span
+                style="color: #ff0000"
+                data-translate="STATUS: COMPLETED & PUBLISHED"
+                >STATUS: COMPLETED &amp; PUBLISHED</span
+              ><br />
+              <span data-translate="PROJECT: APARTMENTEER_description">
+                > &ldquo;Apartmenteer &ndash; your key to student housing&rdquo;
+                app, completed as part of the Summer Challenge final from KN
+                Solvro (Backend and DevOps sections), representing the Backend
+                path. </span
+              ><br />
+              <span style="color: #00ff00" data-translate="CONTRIBUTION"
+                >CONTRIBUTION</span
+              ><br />
+              <a
+                href="https://github.com/Mieszkaniownik"
+                target="_blank"
+                data-translate="VIEW_PROJECT"
+                >[VIEW PROJECT]</a
+              >
             </div>
 
             <div class="achievement-item">
@@ -240,23 +294,19 @@
               <span style="color: #ff0000">STATUS: IN PROGRESS</span><br />
               > [CLASSIFIED]
             </div>
-
-            <div class="achievement-item">
-              <strong>[PROJECT: PLANTAPLANT APP]</strong><br />
-              <span style="color: #ff0000">STATUS: IN PROGRESS</span><br />
-              > [CLASSIFIED]
-            </div>
           </section>
           <section class="section">
             <h2 data-translate="ACHIEVEMENTS"></h2>
             <div class="achievement-item">
-              <strong data-translate="PROJECT_EDUCATIONAL">[PROJECT: EDUCATIONAL]</strong
+              <strong data-translate="PROJECT_EDUCATIONAL"
+                >[PROJECT: EDUCATIONAL]</strong
               ><br />
               <span data-translate="PROJECT_EDUCATIONAL_description">
-                Individual Educational Development Plan implementation
-                Mazowieckie Scholarship Program for Exceptionally Talented Students
-                [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]
-              </span><br />
+                Individual Educational Development Plan implementation &ndash;
+                Mazovian Scholarship Program for exceptionally gifted students
+                &ndash; the best investment in people, organized by the
+                Marshal&rsquo;s Office of the Mazovian Voivodeship. </span
+              ><br />
             </div>
           </section>
         </aside>
@@ -268,23 +318,9 @@
             <div class="skill-category">
               <h4 data-translate="GITHUB FEED">▶ GITHUB FEED</h4>
 
-              <div
-                id="github-repos"
-                style="
-                  background: #000;
-                  border: 3px solid #00ff00;
-                  padding: 20px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-height: 100px;
-                  "
-                >
-                  <p style="color: #00ff00; text-align: center">
+              <div id="github-repos" class="github-feed-container">
+                <div class="github-feed-loading">
+                  <p>
                     <span class="tech-tag">LOADING</span> GitHub repositories...
                   </p>
                 </div>
@@ -299,63 +335,36 @@
       </div>
     </div>
     <script>
-      // GitHub Repositories Widget
       async function fetchGitHubRepos() {
         const reposContainer = document.getElementById('github-repos')
         try {
           const response = await fetch(
-            'https://api.github.com/users/wsparcie/repos?sort=updated&direction=desc'
+            'https://api.github.com/users/wsparcie/repos?sort=updated&direction=desc',
           )
           const repos = await response.json()
 
           if (!response.ok)
             throw new Error(repos.message || 'Failed to fetch repositories')
 
-          let html =
-            '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px;">'
+          let html = '<div class="repos-grid">'
 
           repos.forEach((repo) => {
             if (!repo.fork) {
-              // Skip forked repositories
               const updatedAt = new Date(repo.updated_at).toLocaleDateString()
               html += `
-                            <div style="background: #0a0a0a; border: 2px solid #00ff00; padding: 15px; position: relative;">
-                                <h3 style="color: #00ff00; margin-top: 0; margin-bottom: 10px;">
-                                    <a href="${
-                                      repo.html_url
-                                    }" target="_blank" style="color: inherit; text-decoration: none;">
-                                        ${repo.name}
-                                    </a>
-                                </h3>
-                                <p style="color: #00ff00; font-size: 12px; margin-bottom: 10px;">${
-                                  repo.description || 'No description provided'
-                                }</p>
-                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
-                                        ⭐ ${repo.stargazers_count}
-                                    </span>
-                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
-                                        🍴 ${repo.forks_count}
-                                    </span>
-                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
-                                        📅 ${updatedAt}
-                                    </span>
-                                    ${
-                                      repo.language
-                                        ? `
-                                    <span style="color: #00ff00; font-size: 11px; border: 1px solid #00ff00; padding: 2px 5px;">
-                                        ${repo.language}
-                                    </span>`
-                                        : ''
-                                    }
-                                </div>
-                                <a href="${
-                                  repo.html_url
-                                }" target="_blank" style="position: absolute; bottom: 10px; right: 10px; color: #ff0000; text-decoration: none; font-size: 12px; font-weight: bold;">
-                                    [VIEW CODE]
-                                </a>
-                            </div>
-                        `
+                <div class="repo-card">
+                  <h3 class="repo-name">
+                    <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                  </h3>
+                  <p class="repo-description">${repo.description || 'No description provided'}</p>
+                  <div class="repo-stats">
+                    <span class="stat-item">⭐ ${repo.stargazers_count}</span>
+                    <span class="stat-item">🍴 ${repo.forks_count}</span>
+                    <span class="stat-item">📅 ${updatedAt}</span>
+                    ${repo.language ? `<span class="stat-item">${repo.language}</span>` : ''}
+                  </div>
+                  <a href="${repo.html_url}" target="_blank" class="view-code-link">[VIEW CODE]</a>
+                </div>`
             }
           })
 
@@ -363,30 +372,25 @@
           reposContainer.innerHTML = html
         } catch (error) {
           reposContainer.innerHTML = `
-                    <div style="color: #ff0000; text-align: center; padding: 20px;">
-                        <p>ERROR: Could not load GitHub repositories</p>
-                        <p style="font-size: 12px;">${error.message}</p>
-                        <a href="https://github.com/wsparcie?tab=repositories" target="_blank" style="color: #00ff00; text-decoration: none;">
-                            [VIEW ON GITHUB]
-                        </a>
-                    </div>
-                `
+            <div class="error-container">
+              <p>ERROR: Could not load GitHub repositories</p>
+              <p class="error-message">${error.message}</p>
+              <a href="https://github.com/wsparcie?tab=repositories" target="_blank" class="github-link">[VIEW ON GITHUB]</a>
+            </div>`
         }
       }
 
-      // Call the function when the page loads
       fetchGitHubRepos()
     </script>
     <script src="assets/js/sw.js"></script>
     <script src="assets/js/simple-translations.js"></script>
     <script src="assets/js/theme-switcher.js"></script>
     <script>
-      // Simple language toggle function
       function toggleLanguage() {
         if (window.switchLanguage) {
-          window.switchLanguage();
+          window.switchLanguage()
         } else {
-          console.error('Translation system not loaded');
+          console.error('Translation system not loaded')
         }
       }
     </script>

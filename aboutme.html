@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link
@@ -31,8 +31,15 @@
     <link rel="stylesheet" href="assets/css/aboutme.css" />
     <link rel="stylesheet" href="assets/css/contact.css" />
 
+    <script>
+      ;(function () {
+        var t = localStorage.getItem('theme') || 'light'
+        document.documentElement.setAttribute('data-theme', t)
+      })()
+    </script>
     <link rel="stylesheet" href="assets/css/translation.css" />
     <link rel="stylesheet" href="assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#00ff00" />
     <meta
@@ -41,7 +48,6 @@
     />
   </head>
   <body>
-    <!-- Social Media Sidebar -->
     <div class="social-sidebar">
       <a
         href="https://github.com/wsparcie"
@@ -124,6 +130,17 @@
     <div class="scanner"></div>
     <div class="matrix-bg" id="matrix"></div>
 
+    <button
+      class="scroll-top-btn"
+      id="scrollTopBtn"
+      aria-label="Scroll to top"
+      title="Scroll to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-chevron-up"></i>
+      <span>TOP</span>
+    </button>
+
     <div class="container">
       <div class="corner-element top-left"></div>
       <div class="corner-element top-right"></div>
@@ -151,20 +168,16 @@
               />
             </h1>
 
-            <!-- Enhanced Navigation Bar -->
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
               <div class="nav-menu" id="nav-menu">
-                <a
-                  href="index.html"
-                  class="nav-item active"
-                  data-translate="HOME"
-                  aria-current="page"
+                <a href="index.html" class="nav-item" data-translate="HOME"
                   >HOME</a
                 >
                 <a
                   href="aboutme.html"
-                  class="nav-item"
+                  class="nav-item active"
                   data-translate="ABOUT_ME"
+                  aria-current="page"
                   >ABOUT_ME</a
                 >
                 <a
@@ -183,14 +196,29 @@
             </nav>
           </div>
 
-          <!-- GitHub link moved here to appear on the right -->
-          <div class="contact-info" style="margin-bottom: 0; display: flex; gap: 20px; align-items: center;">
+          <div
+            class="contact-info"
+            style="
+              margin-bottom: 0;
+              display: flex;
+              gap: 20px;
+              align-items: center;
+            "
+          >
             <span
               ><a
-                href="https://github.com/wsparcie"
+                href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
                 target="_blank"
-                aria-label="Visit GitHub profile"
-                >⚡ github.com/wsparcie ⚡</a
+                aria-label="Download CV in Polish"
+                >⚡ CV 🇵🇱</a
+              ></span
+            >
+            <span
+              ><a
+                href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
+                target="_blank"
+                aria-label="Download CV in English"
+                >⚡ CV 🇬🇧</a
               ></span
             >
           </div>
@@ -205,56 +233,116 @@
               <h4 data-translate="Wroclaw University of Science and Technology">
                 Wroclaw University of Science and Technology
               </h4>
-              <p data-translate="INITIALIZED: 2024">INITIALIZED: 2024</p>
+              <p data-translate="SPECIALIZATION: Cybersecurity">
+                <strong>Cybersecurity</strong>
+              </p>
               <p
-                data-translate="FACULTY: Information and Communication Technology"
+                data-translate="FACULTY: Computer Science and Telecommunications"
               >
-                FACULTY: Information and Communication Technology
+                Faculty of Computer Science and Telecommunications
               </p>
-              <p>
-                <strong data-translate="SPECIALIZATION: Cybersceurity"
-                  >SPECIALIZATION: Cybersecurity</strong
-                >
-              </p>
+              <p data-translate="INITIALIZED: since 2024">since 2024</p>
             </div>
             <div class="education-block">
               <h4 data-translate="University of Warsaw">
                 University of Warsaw
               </h4>
-              <p data-translate="INITIALIZED: 2023 - 2024">
-                INITIALIZED: 2023 - 2024
+              <p data-translate="SPECIALIZATION: Computer Science">
+                <strong>Computer Science</strong>
               </p>
               <p
                 data-translate="FACULTY: Mathematics, Informatics and Mechanics"
               >
-                FACULTY: Mathematics, Informatics and Mechanics
+                Faculty of Mathematics, Informatics and Mechanics
               </p>
-              <p>
-                <strong data-translate="SPECIALIZATION: Computer Science"
-                  >SPECIALIZATION: Computer Science</strong
-                >
-              </p>
+              <p data-translate="INITIALIZED: 2023 - 2024">2023 - 2024</p>
+            </div>
+            <div class="education-block">
+              <h4 data-translate="CERTIFICATES">CERTIFICATES</h4>
+              <ul>
+                <li>
+                  <span data-translate="CERT: CCNA Intro"
+                    >CCNA: Introduction to Networks</span
+                  >
+                  <br />
+                  <a
+                    href="https://www.credly.com/badges/49420281-c098-4f67-8052-2fd7f4e50a05/public_url"
+                    target="_blank"
+                    class="view-code-link"
+                    style="margin-top: 5px"
+                    >[VIEW CERTIFICATE]</a
+                  >
+                </li>
+                <li style="margin-top: 10px">
+                  <span data-translate="CERT: CCNA SRWE"
+                    >CCNA: Switching, Routing and Wireless Essentials</span
+                  >
+                  <br />
+                  <a
+                    href="https://www.credly.com/badges/c54593ae-f8ec-40f9-83bb-42c055b21802/public_url"
+                    target="_blank"
+                    class="view-code-link"
+                    style="margin-top: 5px"
+                    >[VIEW CERTIFICATE]</a
+                  >
+                </li>
+                <li style="margin-top: 10px">
+                  <span data-translate="CERT: CyberOps"
+                    >Cisco CyberOps Associate</span
+                  >
+                  <br />
+                  <a
+                    href="https://www.credly.com/badges/ea50de01-052a-4d3a-813d-d230160842a4/public_url"
+                    target="_blank"
+                    class="view-code-link"
+                    style="margin-top: 5px"
+                    >[VIEW CERTIFICATE]</a
+                  >
+                </li>
+              </ul>
             </div>
             <div class="education-block">
               <h4 data-translate="LANGUAGES">LANGUAGES</h4>
               <p>English <span class="language-level">B2/C1</span></p>
-              <p>German <span class="language-level">B1/B2</span></p>
+              <p>German <span class="language-level">A2/B1</span></p>
             </div>
             <div class="education-block">
-              <h4 data-translate="CERTIFICATES">CERTIFICATES</h4>
-              <p>
-                CCNA
-                <span class="certificate-details"
-                  >Introduction to Networks</span
-                >
-              </p>
+              <h4 data-translate="EXPERIENCE">EXPERIENCE</h4>
+              <ul>
+                <li>
+                  <span data-translate="EXP: KN Solvro"
+                    >KN Solvro — Backend &amp; DevOps sections</span
+                  >
+                  <br />
+                  <a
+                    href="https://solvro.pwr.edu.pl/en/team/Backend/page/4/"
+                    target="_blank"
+                    class="view-code-link"
+                    style="margin-top: 5px"
+                    >[VIEW PROFILE]</a
+                  >
+                </li>
+                <li style="margin-top: 10px">
+                  <span data-translate="EXP: Planer"
+                    >Backend developer for the Planer app for classes at WUST,
+                    KN Solvro (since 2025)</span
+                  >
+                  <br />
+                  <a
+                    href="https://planer.solvro.pl/"
+                    target="_blank"
+                    class="view-code-link"
+                    style="margin-top: 5px"
+                    >[VIEW APP]</a
+                  >
+                </li>
+              </ul>
             </div>
           </section>
         </aside>
 
         <main class="content" role="main">
           <section class="section">
-            <link rel="stylesheet" href="assets/css/drawer.css" />
             <h2>[SKILLS]</h2>
             <div class="skills-container">
               <div class="skill-category" data-category="programming">
@@ -265,40 +353,20 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ PROGRAMMING & SOFTWARE DEVELOPMENT</span>
+                  <span>⮞ PROGRAMMING LANGUAGES</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Python</strong> - Advanced scripting, automation,
-                      data analysis, machine learning frameworks
-                    </li>
-                    <li>
-                      <strong>C++, C#</strong> - System programming, game
-                      development, enterprise applications
-                    </li>
-                    <li>
-                      <strong>JavaScript</strong> - Full-stack web development,
-                      Node.js, modern frameworks
-                    </li>
-                    <li>
-                      <strong>Bash, PowerShell</strong> - System administration,
-                      automation, DevOps scripting
-                    </li>
-                    <li>
-                      <strong>Docker</strong> - Containerization, deployment,
-                      microservices architecture
-                    </li>
-                    <li>
-                      <strong>Version Control</strong> - Git workflows,
-                      collaborative development, CI/CD
-                    </li>
+                    <li><strong>Python</strong></li>
+                    <li><strong>TypeScript, JavaScript</strong></li>
+                    <li><strong>C++, C#</strong></li>
+                    <li><strong>Bash, PowerShell</strong></li>
                   </ul>
                 </div>
               </div>
 
-              <div class="skill-category" data-category="data">
+              <div class="skill-category" data-category="devops">
                 <div
                   class="skill-drawer-tab"
                   aria-expanded="false"
@@ -306,27 +374,15 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ DATA ANALYSIS & SCIENCE</span>
+                  <span>⮞ DEVOPS &amp; CLOUD</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Data Processing</strong> - Pandas, NumPy,
-                      statistical analysis, ETL pipelines
-                    </li>
-                    <li>
-                      <strong>Data Visualization</strong> - Matplotlib, Plotly,
-                      interactive dashboards
-                    </li>
-                    <li>
-                      <strong>Web Scraping</strong> - BeautifulSoup, Scrapy, API
-                      integration, data mining
-                    </li>
-                    <li>
-                      <strong>OCR & Image Processing</strong> - Tesseract,
-                      OpenCV, document digitization
-                    </li>
+                    <li>Google Cloud Platform, Kubernetes Engine</li>
+                    <li>Docker, Kubernetes, Helm</li>
+                    <li>Terraform, CI/CD (GitHub Actions, GC Build)</li>
+                    <li>Nginx, Grafana</li>
                   </ul>
                 </div>
               </div>
@@ -339,27 +395,14 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ WEB TECHNOLOGIES & FRONTEND</span>
+                  <span>⮞ BACKEND, SCRAPING &amp; AUTOMATION</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Django/Flask</strong> - Full-stack web
-                      applications, REST APIs, authentication
-                    </li>
-                    <li>
-                      <strong>HTML/CSS/JavaScript</strong> - Responsive design,
-                      modern CSS, ES6+
-                    </li>
-                    <li>
-                      <strong>RESTful APIs</strong> - API design, documentation,
-                      integration, testing
-                    </li>
-                    <li>
-                      <strong>GUI Development</strong> - Desktop applications,
-                      user interface design
-                    </li>
+                    <li>REST API, OAuth2, JWT authentication</li>
+                    <li>Node.js, NestJS, Django, Flask</li>
+                    <li>Selenium, BeautifulSoup, Puppeteer, Playwright</li>
                   </ul>
                 </div>
               </div>
@@ -372,24 +415,18 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ DATABASE & BACKEND TECHNOLOGIES</span>
+                  <span>⮞ DATABASES &amp; MESSAGE BROKERS</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Database Design</strong> - SQL, NoSQL,
-                      optimization, data modeling
-                    </li>
-                    <li>
-                      <strong>Authentication Systems</strong> - OAuth, JWT,
-                      session management, security
-                    </li>
+                    <li>SQL, PostgreSQL, Prisma ORM</li>
+                    <li>Redis, BullMQ</li>
                   </ul>
                 </div>
               </div>
 
-              <div class="skill-category" data-category="system">
+              <div class="skill-category" data-category="frontend">
                 <div
                   class="skill-drawer-tab"
                   aria-expanded="false"
@@ -397,19 +434,33 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ SYSTEM & NETWORK ADMINISTRATION</span>
+                  <span>⮞ FRONTEND</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Operating Systems</strong> - Linux administration,
-                      Windows Server, virtualization
-                    </li>
-                    <li>
-                      <strong>Networks</strong> - TCP/IP, routing protocols,
-                      network troubleshooting, CCNA certified
-                    </li>
+                    <li>React, TailwindCSS, Vite</li>
+                    <li>HTML5, CSS, Bootstrap</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-category" data-category="data">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ DATA SCIENCE</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>Pandas, NumPy</li>
+                    <li>Matplotlib, Plotly</li>
+                    <li>Tesseract OCR</li>
                   </ul>
                 </div>
               </div>
@@ -422,23 +473,34 @@
                   tabindex="0"
                 >
                   <span class="clearance-indicator"></span>
-                  <span>⮞ CYBERSECURITY & PENETRATION TESTING</span>
+                  <span>⮞ CYBERSECURITY &amp; NETWORK ADMINISTRATION</span>
                   <span class="skill-drawer-arrow">▼</span>
                 </div>
                 <div class="skill-drawer-content">
                   <ul>
-                    <li>
-                      <strong>Web Application Security</strong> - OWASP Top 10,
-                      vulnerability assessment, secure coding
-                    </li>
-                    <li>
-                      <strong>Network Protocol Analysis</strong> - Wireshark,
-                      traffic analysis, intrusion detection
-                    </li>
-                    <li>
-                      <strong>Cryptographic Analysis</strong> - Encryption
-                      algorithms, security protocols, key management
-                    </li>
+                    <li>Linux, Windows</li>
+                    <li>LAN Networks (routers/switches)</li>
+                    <li>Burp Suite, Metasploit</li>
+                    <li>Wireshark, Socat, Scapy, Hydra</li>
+                    <li>Hashcat, John The Ripper</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-category" data-category="tools">
+                <div
+                  class="skill-drawer-tab"
+                  aria-expanded="false"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ TOOLS</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <ul>
+                    <li>Git, GitHub</li>
                   </ul>
                 </div>
               </div>
@@ -453,42 +515,37 @@
               paperFlip: './assets/sounds/paper_flip.mp3',
             }
 
-            // Initialize audio context and load sounds
             async function initAudio() {
               try {
-                audioContext = new (window.AudioContext ||
-                  window.webkitAudioContext)()
+                audioContext = new (
+                  window.AudioContext || window.webkitAudioContext
+                )()
 
-                // Try to load external sound files (optional)
                 for (const [soundName, soundPath] of Object.entries(
-                  soundFiles
+                  soundFiles,
                 )) {
                   try {
                     const response = await fetch(soundPath)
                     const arrayBuffer = await response.arrayBuffer()
-                    const audioBuffer = await audioContext.decodeAudioData(
-                      arrayBuffer
-                    )
+                    const audioBuffer =
+                      await audioContext.decodeAudioData(arrayBuffer)
                     audioBuffers[soundName] = audioBuffer
                     console.log(`Loaded external sound: ${soundName}`)
                   } catch (error) {
-                    // Silently fail - we'll use procedural sounds instead
                     console.log(`Using procedural sound for: ${soundName}`)
                   }
                 }
 
                 console.log(
-                  'Audio system initialized - using procedural sounds for missing files'
+                  'Audio system initialized - using procedural sounds for missing files',
                 )
               } catch (error) {
                 console.warn('Audio initialization failed:', error)
               }
             }
 
-            // Play sound function with procedural fallback
             function playSound(soundName, volume = 0.5) {
               if (!audioContext) {
-                // Try to initialize audio context if it doesn't exist
                 try {
                   initAudio()
                 } catch (e) {
@@ -497,12 +554,10 @@
                 }
               }
 
-              // Resume audio context if suspended (browser autoplay policy)
               if (audioContext.state === 'suspended') {
                 audioContext.resume()
               }
 
-              // Use external sound if available, otherwise use procedural sound
               if (audioBuffers[soundName]) {
                 try {
                   const source = audioContext.createBufferSource()
@@ -519,14 +574,13 @@
                 } catch (error) {
                   console.warn(
                     `Failed to play external sound: ${soundName}`,
-                    error
+                    error,
                   )
                 }
               }
             }
 
             document.addEventListener('DOMContentLoaded', function () {
-              // ... rest of your DOMContentLoaded code remains the same
               const skillCategories =
                 document.querySelectorAll('.skill-category')
 
@@ -534,12 +588,10 @@
                 const tab = category.querySelector('.skill-drawer-tab')
                 const content = category.querySelector('.skill-drawer-content')
 
-                // Click handler
                 tab.addEventListener('click', function () {
                   toggleSkillCategory(category, tab, content)
                 })
 
-                // Keyboard handler
                 tab.addEventListener('keydown', function (e) {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
@@ -547,7 +599,6 @@
                   }
                 })
 
-                // Enhanced hover effects
                 category.addEventListener('mouseenter', function () {
                   if (!category.classList.contains('expanded')) {
                     category.style.transform = 'translateX(5px)'
@@ -564,18 +615,16 @@
               function toggleSkillCategory(category, tab, content) {
                 const isExpanded = category.classList.contains('expanded')
 
-                // Close all other categories first
                 skillCategories.forEach((otherCategory) => {
                   if (otherCategory !== category) {
                     otherCategory.classList.remove('expanded')
                     const otherTab =
                       otherCategory.querySelector('.skill-drawer-tab')
                     const otherContent = otherCategory.querySelector(
-                      '.skill-drawer-content'
+                      '.skill-drawer-content',
                     )
                     otherTab.setAttribute('aria-expanded', 'false')
 
-                    // Reset list animations
                     const otherItems = otherContent.querySelectorAll('li')
                     otherItems.forEach((item) => {
                       item.style.animation = 'none'
@@ -585,12 +634,10 @@
                   }
                 })
 
-                // Toggle current category
                 if (!isExpanded) {
                   category.classList.add('expanded')
                   tab.setAttribute('aria-expanded', 'true')
 
-                  // Trigger animation for list items
                   setTimeout(() => {
                     const items = content.querySelectorAll('li')
                     items.forEach((item, index) => {
@@ -600,13 +647,11 @@
                     })
                   }, 100)
 
-                  // Audio feedback (if you want to add sound effects)
                   playSound('paperFlip', 0.5)
                 } else {
                   category.classList.remove('expanded')
                   tab.setAttribute('aria-expanded', 'false')
 
-                  // Reset list animations
                   const items = content.querySelectorAll('li')
                   items.forEach((item) => {
                     item.style.animation = 'none'
@@ -616,30 +661,28 @@
                 }
               }
 
-              // Optional: Audio feedback function
+              setTimeout(() => {
+                const firstCategory = skillCategories[0]
+                if (firstCategory) {
+                  const firstTab =
+                    firstCategory.querySelector('.skill-drawer-tab')
+                  const firstContent = firstCategory.querySelector(
+                    '.skill-drawer-content',
+                  )
+                  toggleSkillCategory(firstCategory, firstTab, firstContent)
+                }
+              }, 500)
 
-              // Auto-expand first category on load (optional)
-              // setTimeout(() => {
-              //     const firstCategory = skillCategories[0];
-              //     if (firstCategory) {
-              //         const firstTab = firstCategory.querySelector('.skill-drawer-tab');
-              //         const firstContent = firstCategory.querySelector('.skill-drawer-content');
-              //         toggleSkillCategory(firstCategory, firstTab, firstContent);
-              //     }
-              // }, 500);
-
-              // Close categories when clicking outside
               document.addEventListener('click', function (e) {
                 if (!e.target.closest('.skill-category')) {
                   skillCategories.forEach((category) => {
                     category.classList.remove('expanded')
                     const tab = category.querySelector('.skill-drawer-tab')
                     const content = category.querySelector(
-                      '.skill-drawer-content'
+                      '.skill-drawer-content',
                     )
                     tab.setAttribute('aria-expanded', 'false')
 
-                    // Reset animations
                     const items = content.querySelectorAll('li')
                     items.forEach((item) => {
                       item.style.animation = 'none'
@@ -650,22 +693,16 @@
                 }
               })
 
-              // Add typing effect to security stamps
               function addTypingEffect() {
                 const stamps = document.querySelectorAll(
-                  '.skill-drawer-content::before'
+                  '.skill-drawer-content::before',
                 )
-                stamps.forEach((stamp) => {
-                  // This would require additional DOM manipulation for a real typing effect
-                  // For now, the CSS animation handles the reveal
-                })
+                stamps.forEach((stamp) => {})
               }
 
-              // Performance optimization: Use requestAnimationFrame for smooth animations
               let ticking = false
 
               function updateAnimations() {
-                // Handle any continuous animations here
                 ticking = false
               }
 
@@ -676,7 +713,6 @@
                 }
               }
 
-              // Initialize any additional effects
               addTypingEffect()
             })
           </script>
@@ -691,7 +727,6 @@
       </footer>
     </div>
 
-    <!-- Enhanced Scripts -->
     <script src="assets/js/sw.js"></script>
     <script src="assets/js/simple-translations.js"></script>
     <script src="assets/js/theme-switcher.js"></script>

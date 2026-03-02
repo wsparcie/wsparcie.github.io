@@ -1,31 +1,3 @@
-body {
-  font-family: 'Courier New', monospace;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin: 0;
-  padding: 20px;
-}
-
-.section {
-  margin-bottom: 40px;
-  position: relative;
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  padding: 10px;
-  background: var(--text-primary);
-  color: var(--bg-secondary);
-  position: relative;
-  letter-spacing: 4px;
-  box-shadow: 5px 5px 0 var(--bg-secondary), 10px 10px 0 var(--text-primary);
-  transition: all 0.3s;
-}
-
 /* Enhanced Skills Section - Sliding Drawer Effect */
 .skills-container {
   position: relative;
@@ -90,7 +62,9 @@ h2 {
 .skill-category.expanded {
   transform: translateX(0);
   border-color: var(--border-accent);
-  box-shadow: 0 0 30px var(--shadow-accent), inset 0 0 30px var(--shadow-accent),
+  box-shadow:
+    0 0 30px var(--shadow-accent),
+    inset 0 0 30px var(--shadow-accent),
     10px 10px 0 var(--shadow-primary);
 }
 

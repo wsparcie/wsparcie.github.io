@@ -66,11 +66,6 @@
   color: var(--text-secondary); /* Will be #000000 in light mode */
 }
 
-[data-theme='light'] h1:hover,
-[data-theme='light'] .title-name:hover {
-  color: var(--text-accent); /* Will be #0066cc in light mode */
-}
-
 /* Apply theme variables to existing styles */
 body {
   background: var(--bg-primary);
@@ -80,7 +75,8 @@ body {
 .container {
   background: var(--bg-secondary);
   border-color: var(--border-primary);
-  box-shadow: 0 0 100px var(--shadow-primary),
+  box-shadow:
+    0 0 100px var(--shadow-primary),
     inset 0 0 100px var(--shadow-primary);
 }
 
@@ -114,7 +110,9 @@ header {
 
 h1 {
   color: var(--text-secondary);
-  text-shadow: 2px 2px 0 var(--text-primary), -2px -2px 0 var(--text-accent),
+  text-shadow:
+    2px 2px 0 var(--text-primary),
+    -2px -2px 0 var(--text-accent),
     0 0 20px var(--shadow-primary);
 }
 
@@ -141,11 +139,15 @@ h1 {
 h2 {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 5px 5px 0 var(--bg-secondary), 10px 10px 0 var(--text-primary);
+  box-shadow:
+    5px 5px 0 var(--bg-secondary),
+    10px 10px 0 var(--text-primary);
 }
 
 h2:hover {
-  box-shadow: -5px 5px 0 var(--bg-secondary), -10px 10px 0 var(--text-accent);
+  box-shadow:
+    -5px 5px 0 var(--bg-secondary),
+    -10px 10px 0 var(--text-accent);
 }
 
 h3 {
@@ -161,7 +163,9 @@ h3 {
 
 .skill-category:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 30px var(--shadow-accent), inset 0 0 30px var(--shadow-accent);
+  box-shadow:
+    0 0 30px var(--shadow-accent),
+    inset 0 0 30px var(--shadow-accent);
 }
 
 .skill-category h4 {
@@ -202,7 +206,9 @@ li::before {
 
 .achievement-item:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 50px var(--shadow-accent), inset 0 0 50px var(--shadow-accent);
+  box-shadow:
+    0 0 50px var(--shadow-accent),
+    inset 0 0 50px var(--shadow-accent);
 }
 
 .achievement-item a {
@@ -282,7 +288,9 @@ li::before {
 .tech-tag:hover {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 0 0 20px var(--shadow-primary), -5px 5px 0 var(--bg-secondary);
+  box-shadow:
+    0 0 20px var(--shadow-primary),
+    -5px 5px 0 var(--bg-secondary);
 }
 
 /* Contact page styles */
@@ -407,29 +415,6 @@ li::before {
   border-color: var(--border-primary);
 }
 
-/* Theme switcher button styles */
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-  color: var(--text-primary);
-  padding: 10px 15px;
-  font-family: 'Courier New', monospace;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.theme-switcher:hover {
-  background: var(--text-primary);
-  color: var(--bg-secondary);
-  box-shadow: 0 0 20px var(--shadow-primary);
-}
-
 /* Accessibility improvements for light mode */
 [data-theme='light'] *::selection {
   background: var(--text-primary);
@@ -446,16 +431,6 @@ li::before {
   [data-theme='light'] .container {
     border-color: #000 !important;
     box-shadow: none !important;
-  }
-}
-
-/* Mobile responsiveness for theme switcher */
-@media (max-width: 768px) {
-  .theme-switcher {
-    top: 10px;
-    right: 10px;
-    padding: 8px 12px;
-    font-size: 12px;
   }
 }
 
@@ -478,107 +453,6 @@ li::before {
 }
 
 /* GitHub Repos Widget Light Mode Styles */
-[data-theme='light'] .repos-grid {
-  display: grid;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-[data-theme='light'] .repo-card {
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-  padding: 20px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-[data-theme='light'] .repo-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: 0 0 15px var(--shadow-accent);
-  transform: translateY(-3px);
-}
-
-[data-theme='light'] .repo-name {
-  margin: 0 0 15px 0;
-  font-size: 1.4rem;
-}
-
-[data-theme='light'] .repo-name a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-[data-theme='light'] .repo-name a:hover {
-  color: var(--text-accent);
-  text-decoration: underline;
-}
-
-[data-theme='light'] .repo-description {
-  color: var(--text-primary);
-  margin: 0 0 15px 0;
-  line-height: 1.5;
-}
-
-[data-theme='light'] .repo-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-[data-theme='light'] .stat-item {
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-[data-theme='light'] .view-code-link {
-  color: var(--text-accent);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  display: inline-block;
-  border: 1px solid var(--border-accent);
-  padding: 5px 10px;
-}
-
-[data-theme='light'] .view-code-link:hover {
-  background: var(--text-accent);
-  color: var(--bg-secondary);
-  box-shadow: 0 0 10px var(--shadow-accent);
-}
-
-[data-theme='light'] .error-container {
-  text-align: center;
-  padding: 40px 20px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-}
-
-[data-theme='light'] .error-message {
-  color: var(--text-accent);
-  margin: 10px 0 20px;
-}
-
-[data-theme='light'] .github-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  border: 1px solid var(--border-primary);
-  padding: 8px 15px;
-  transition: all 0.3s ease;
-}
-
-[data-theme='light'] .github-link:hover {
-  background: var(--text-secondary);
-  color: var(--bg-secondary);
-  border-color: var(--border-accent);
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -591,11 +465,6 @@ li::before {
   }
 }
 
-@media (min-width: 769px) {
-  [data-theme='light'] .repos-grid {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-}
 /* Dark Mode Theme Styles */
 [data-theme='dark'] {
   --bg-primary: #0a0a0a;
@@ -641,7 +510,8 @@ li::before {
 [data-theme='dark'] .container {
   background: var(--bg-secondary);
   border-color: var(--border-primary);
-  box-shadow: 0 0 100px var(--shadow-primary),
+  box-shadow:
+    0 0 100px var(--shadow-primary),
     inset 0 0 100px rgba(0, 255, 0, 0.1);
 }
 
@@ -686,22 +556,10 @@ li::before {
 [data-theme='dark'] h1,
 [data-theme='dark'] .title-name {
   color: var(--text-secondary);
-  text-shadow: 2px 2px 0 var(--text-primary), -2px -2px 0 var(--text-accent),
+  text-shadow:
+    2px 2px 0 var(--text-primary),
+    -2px -2px 0 var(--text-accent),
     0 0 20px rgba(0, 255, 0, 0.5);
-}
-
-[data-theme='dark'] .title-name:hover {
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] h1::before,
-[data-theme='dark'] .title-name::before {
-  color: var(--text-accent);
-}
-
-[data-theme='dark'] h1::after,
-[data-theme='dark'] .title-name::after {
-  background: var(--text-primary);
 }
 
 /* Contact info styling */
@@ -733,11 +591,15 @@ li::before {
 [data-theme='dark'] h2 {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 5px 5px 0 var(--bg-secondary), 10px 10px 0 var(--text-primary);
+  box-shadow:
+    5px 5px 0 var(--bg-secondary),
+    10px 10px 0 var(--text-primary);
 }
 
 [data-theme='dark'] h2:hover {
-  box-shadow: -5px 5px 0 var(--bg-secondary), -10px 10px 0 var(--text-accent);
+  box-shadow:
+    -5px 5px 0 var(--bg-secondary),
+    -10px 10px 0 var(--text-accent);
 }
 
 [data-theme='dark'] h3 {
@@ -764,7 +626,9 @@ li::before {
 
 [data-theme='dark'] .skill-category:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 30px var(--shadow-accent), inset 0 0 30px rgba(255, 0, 0, 0.1);
+  box-shadow:
+    0 0 30px var(--shadow-accent),
+    inset 0 0 30px rgba(255, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .skill-category h4 {
@@ -800,7 +664,9 @@ li::before {
 
 [data-theme='dark'] .achievement-item:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), inset 0 0 50px rgba(255, 0, 0, 0.2);
+  box-shadow:
+    0 0 50px rgba(255, 0, 0, 0.8),
+    inset 0 0 50px rgba(255, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .achievement-item a {
@@ -884,7 +750,9 @@ li::before {
 [data-theme='dark'] .tech-tag:hover {
   background: var(--text-primary);
   color: var(--bg-secondary);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), -5px 5px 0 var(--bg-secondary);
+  box-shadow:
+    0 0 20px rgba(0, 255, 0, 0.8),
+    -5px 5px 0 var(--bg-secondary);
 }
 
 /* Corner elements */
@@ -1051,102 +919,6 @@ li::before {
   display: grid;
   gap: 20px;
   margin-top: 20px;
-}
-
-[data-theme='dark'] .repo-card {
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-  padding: 20px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-[data-theme='dark'] .repo-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: 0 0 15px var(--shadow-accent);
-  transform: translateY(-3px);
-}
-
-[data-theme='dark'] .repo-name {
-  margin: 0 0 15px 0;
-  font-size: 1.4rem;
-}
-
-[data-theme='dark'] .repo-name a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-[data-theme='dark'] .repo-name a:hover {
-  color: var(--text-accent);
-  text-decoration: underline;
-}
-
-[data-theme='dark'] .repo-description {
-  color: var(--text-primary);
-  margin: 0 0 15px 0;
-  line-height: 1.5;
-}
-
-[data-theme='dark'] .repo-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-[data-theme='dark'] .stat-item {
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-[data-theme='dark'] .view-code-link {
-  color: var(--text-accent);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  display: inline-block;
-  border: 1px solid var(--border-accent);
-  padding: 5px 10px;
-}
-
-[data-theme='dark'] .view-code-link:hover {
-  background: var(--text-accent);
-  color: var(--bg-secondary);
-  box-shadow: 0 0 10px var(--shadow-accent);
-}
-
-[data-theme='dark'] .error-container {
-  text-align: center;
-  padding: 40px 20px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-primary);
-}
-
-[data-theme='dark'] .error-message {
-  color: var(--text-accent);
-  margin: 10px 0 20px;
-}
-
-[data-theme='dark'] .github-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  border: 1px solid var(--border-primary);
-  padding: 8px 15px;
-  transition: all 0.3s ease;
-}
-
-[data-theme='dark'] .github-link:hover {
-  background: var(--text-secondary);
-  color: var(--bg-secondary);
-  border-color: var(--border-accent);
 }
 
 /* Theme switcher */

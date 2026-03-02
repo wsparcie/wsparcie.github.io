@@ -24,15 +24,15 @@ class ThemeSwitcher {
 
     // Update existing theme switcher buttons
     const existingButtons = Array.from(
-      document.querySelectorAll('button')
+      document.querySelectorAll('button'),
     ).filter(
       (button) =>
-        containsText(button, 'light/dark') || containsText(button, 'sun/moon')
+        containsText(button, 'light/dark') || containsText(button, 'sun/moon'),
     )
 
     // Find all buttons that should be theme switchers
     const themeSwitcherButtons = document.querySelectorAll(
-      '.language-switcher button'
+      '.language-switcher button',
     )
 
     themeSwitcherButtons.forEach((button, index) => {
@@ -68,9 +68,9 @@ class ThemeSwitcher {
 
   updateButtonText(button) {
     if (this.currentTheme === 'dark') {
-      button.innerHTML = '<i class="fas fa-sun"></i> LIGHT'
+      button.innerHTML = '<i class="fas fa-sun"></i> <span>LIGHT</span>'
     } else {
-      button.innerHTML = '<i class="fas fa-moon"></i> DARK'
+      button.innerHTML = '<i class="fas fa-moon"></i> <span>DARK</span>'
     }
   }
 
@@ -123,7 +123,7 @@ class ThemeSwitcher {
 
     // Trigger custom event for other components
     document.dispatchEvent(
-      new CustomEvent('themeChanged', { detail: { theme } })
+      new CustomEvent('themeChanged', { detail: { theme } }),
     )
   }
 
@@ -271,7 +271,7 @@ class AccessibilityEnhancements {
   addReducedMotionSupport() {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
+      '(prefers-reduced-motion: reduce)',
     )
 
     if (prefersReducedMotion.matches) {

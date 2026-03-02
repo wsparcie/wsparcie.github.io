@@ -23,33 +23,43 @@ const TRANSLATIONS = {
     PERSONAL_INFO: '[PERSONAL_INFO]',
     MOTIVATION: '▶ MOTIVATION',
     ROADMAP: '[ROADMAP]',
-    'CURRENT_FOCUS': '▶ CURRENT FOCUS',
+    CURRENT_FOCUS: '▶ CURRENT FOCUS',
 
     // Specific content
     BACKGROUND_TEXT1: `I'm a passionate student with a love for creating practical solutions and exploring different aspects of programming. Currently pursuing a degree in Cybersecurity at Wroclaw University of Science and Technology. My passion for technology and security drives me to continuously expand my knowledge through hands-on projects and self-directed learning.`,
-    
+
     BACKGROUND_TEXT2: `I thrive in challenging environments where I can apply both theoretical knowledge and practical skills to solve complex problems. My goal is to contribute to the cybersecurity field while continuously growing as a programmer.`,
+
+    BACKGROUND_TEXT3: `Member of the strategic Solvro Science Club at the WUST. Both work and a summer internship in the field of IT would be an ideal opportunity to use the practical and theoretical skills I have acquired so far, both as part of my engineering studies and self-development.`,
 
     // Current focus items
     Security: 'Security',
     Automation: 'Automation',
     'Data Science': 'Data Science',
     'Full-Stack Development': 'Full-Stack Development',
-    
-    Security_description: '— staying updated with latest threats and defense mechanisms',
-    Automation_description: '— creating interactive experiences and procedural content',
+
+    Security_description:
+      '— staying updated with latest threats and defense mechanisms',
+    Automation_description:
+      '— creating interactive experiences and procedural content',
     'Data Science_description': '— participating in community-driven projects',
-    'Full-Stack Development_description': '— exploring penetration testing and vulnerability assessment',
+    'Full-Stack Development_description':
+      '— exploring penetration testing and vulnerability assessment',
 
     // Projects page
     'PROJECT: SOCIAL IMPACT': '[PROJECT: SOCIAL IMPACT]',
     'STATUS: COMPLETED & PUBLISHED': 'STATUS: COMPLETED & PUBLISHED',
     CONTRIBUTION: 'CONTRIBUTION',
     PLAY_GAME: '[PLAY GAME]',
+    VIEW_PROJECT: '[VIEW PROJECT]',
     'PROJECT: EDUCATIONAL': '[PROJECT: EDUCATIONAL]',
-    'PROJECT_EDUCATIONAL': '[PROJECT: EDUCATIONAL]',
-    'PROJECT: SOCIAL IMPACT_description': '> Ecological computer game project Garbage Can, organized by Zwolnieni z Teorii foundation',
-    'PROJECT_EDUCATIONAL_description': `Individual Educational Development Plan implementation Mazowieckie Scholarship Program for Exceptionally Talented Students [ORGANIZER: Mazowieckie Voivodeship Marshal's Office]`,
+    PROJECT_EDUCATIONAL: '[PROJECT: EDUCATIONAL]',
+    'PROJECT: SOCIAL IMPACT_description':
+      '> Ecological computer game project Garbage Can, organized by Zwolnieni z Teorii foundation (i.a. procedurally generated building models using Geometry Nodes).',
+    PROJECT_EDUCATIONAL_description: `Individual Educational Development Plan implementation – Mazovian Scholarship Program for exceptionally gifted students – the best investment in people, organized by the Marshal’s Office of the Mazovian Voivodeship.`,
+    'PROJECT: APARTMENTEER': '[PROJECT: APARTMENTEER]',
+    'PROJECT: APARTMENTEER_description':
+      '> “Apartmenteer – your key to student housing” app, completed as part of the Summer Challenge final from KN Solvro (Backend and DevOps sections), representing the Backend path.',
     GITHUB_REPOSITORIES: '[GITHUB_REPOSITORIES]',
     'GITHUB FEED': '▶ GITHUB FEED',
 
@@ -82,8 +92,30 @@ const TRANSLATIONS = {
     RESPONSIBLE: 'RESPONSIBLE',
     'PRESSURE RESISTANT': 'PRESSURE RESISTANT',
     'DEADLINE KEEPER': 'DEADLINE KEEPER',
+
+    // About me — education & experience
+    'Wroclaw University of Science and Technology':
+      'Wroclaw University of Science and Technology',
+    'SPECIALIZATION: Cybersecurity': 'Cybersecurity',
+    'FACULTY: Computer Science and Telecommunications':
+      'Faculty of Computer Science and Telecommunications',
+    'INITIALIZED: since 2024': 'since 2024',
+    'University of Warsaw': 'University of Warsaw',
+    'SPECIALIZATION: Computer Science': 'Computer Science',
+    'FACULTY: Mathematics, Informatics and Mechanics':
+      'Faculty of Mathematics, Informatics and Mechanics',
+    'INITIALIZED: 2023 - 2024': '2023 - 2024',
+    CERTIFICATES: 'CERTIFICATES',
+    'CERT: CCNA Intro': 'CCNA: Introduction to Networks',
+    'CERT: CCNA SRWE': 'CCNA: Switching, Routing and Wireless Essentials',
+    'CERT: CyberOps': 'Cisco CyberOps Associate',
+    LANGUAGES: 'LANGUAGES',
+    EXPERIENCE: 'EXPERIENCE',
+    'EXP: KN Solvro': 'KN Solvro — Backend & DevOps sections',
+    'EXP: Planer':
+      'Backend developer for the Planer app for classes at WUST, KN Solvro (since 2025)',
   },
-  
+
   pl: {
     // Navigation
     HOME: 'STRONA_GŁÓWNA',
@@ -105,33 +137,46 @@ const TRANSLATIONS = {
     PERSONAL_INFO: '[INFORMACJE_OSOBISTE]',
     MOTIVATION: '▶ MOTYWACJA',
     ROADMAP: '[PLAN_ROZWOJU]',
-    'CURRENT_FOCUS': '▶ OBECNY FOKUS',
+    CURRENT_FOCUS: '▶ OBECNY FOKUS',
 
     // Specific content
-    BACKGROUND_TEXT1: 'Jestem pasjonatem studentem z miłością do tworzenia praktycznych rozwiązań i eksplorowania różnych aspektów programowania. Obecnie studiuję Cyberbezpieczeństwo na Politechnice Wrocławskiej. Moja pasja do technologii i bezpieczeństwa napędza mnie do ciągłego poszerzania wiedzy poprzez praktyczne projekty i samodzielną naukę.',
-    
-    BACKGROUND_TEXT2: 'Rozwijam się w wymagających środowiskach, gdzie mogę zastosować zarówno wiedzę teoretyczną, jak i praktyczne umiejętności do rozwiązywania złożonych problemów. Moim celem jest wniesienie wkładu w dziedzinę cyberbezpieczeństwa, jednocześnie stale rozwijając się jako programista.',
+    BACKGROUND_TEXT1:
+      'Jestem pasjonatem studentem z miłością do tworzenia praktycznych rozwiązań i eksplorowania różnych aspektów programowania. Obecnie studiuję Cyberbezpieczeństwo na Politechnice Wrocławskiej. Moja pasja do technologii i bezpieczeństwa napędza mnie do ciągłego poszerzania wiedzy poprzez praktyczne projekty i samodzielną naukę.',
+
+    BACKGROUND_TEXT2:
+      'Rozwijam się w wymagających środowiskach, gdzie mogę zastosować zarówno wiedzę teoretyczną, jak i praktyczne umiejętności do rozwiązywania złożonych problemów. Moim celem jest wniesienie wkładu w dziedzinę cyberbezpieczeństwa, jednocześnie stale rozwijając się jako programista.',
+
+    BACKGROUND_TEXT3:
+      'Członek strategicznego Koła Naukowego Solvro na PWr. Zarówno praca, jak i wakacyjny staż w obszarze IT stanowiłby idealną okazję do wykorzystania dotychczas zdobytych umiejętności praktycznych i teoretycznych, zarówno w ramach studiów inżynierskich jak i samorozwoju.',
 
     // Current focus items
     Security: 'Bezpieczeństwo',
     Automation: 'Automatyzacja',
     'Data Science': 'Nauka o danych',
     'Full-Stack Development': 'Programowanie full-stack',
-    
-    Security_description: '— bycie na bieżąco z najnowszymi zagrożeniami i mechanizmami obronnymi',
-    Automation_description: '— tworzenie interaktywnych doświadczeń i treści proceduralnych',
+
+    Security_description:
+      '— bycie na bieżąco z najnowszymi zagrożeniami i mechanizmami obronnymi',
+    Automation_description:
+      '— tworzenie interaktywnych doświadczeń i treści proceduralnych',
     'Data Science_description': '— udział w projektach społecznościowych',
-    'Full-Stack Development_description': '— badanie testów penetracyjnych i oceny podatności',
+    'Full-Stack Development_description':
+      '— badanie testów penetracyjnych i oceny podatności',
 
     // Projects page
     'PROJECT: SOCIAL IMPACT': '[PROJEKT: WPŁYW SPOŁECZNY]',
     'STATUS: COMPLETED & PUBLISHED': 'STATUS: UKOŃCZONY I OPUBLIKOWANY',
     CONTRIBUTION: 'WKŁAD',
     PLAY_GAME: '[ZAGRAJ]',
+    VIEW_PROJECT: '[ZOBACZ PROJEKT]',
     'PROJECT: EDUCATIONAL': '[PROJEKT: EDUKACYJNY]',
-    'PROJECT_EDUCATIONAL': '[PROJEKT: EDUKACYJNY]',
-    'PROJECT: SOCIAL IMPACT_description': '> Projekt ekologicznej gry komputerowej Garbage Can, zorganizowany przez fundację Zwolnieni z Teorii',
-    'PROJECT_EDUCATIONAL_description': `Wdrożenie indywidualnego planu rozwoju edukacyjnego Mazowiecki program stypendialny dla wyjątkowo utalentowanych uczniów [ORGANIZATOR: Urząd Marszałkowski Województwa Mazowieckiego]`,
+    PROJECT_EDUCATIONAL: '[PROJEKT: EDUKACYJNY]',
+    'PROJECT: SOCIAL IMPACT_description':
+      '> Projekt ekologicznej gry komputerowej Garbage Can, zorganizowany przez fundację Zwolnieni z Teorii (m. in. stworzyłem proceduralnie generowane modele budynków z Geometry Nodes).',
+    PROJECT_EDUCATIONAL_description: `Zrealizowanie projektu edukacyjnego (zawartego w Indywidualnym Planie Rozwoju Edukacyjnego Ucznia) w ramach Mazowieckiego Programu Stypendialnego dla uczniów szczególnie uzdolnionych – najlepsza inwestycja w człowieka, organizowanego przez Urząd Marszałkowski Województwa Mazowieckiego.`,
+    'PROJECT: APARTMENTEER': '[PROJEKT: MIESZKANIOWNIK]',
+    'PROJECT: APARTMENTEER_description':
+      '> „Mieszkaniownik – twój klucz do studenckiego mieszkania” – aplikacja stworzona w ramach finału Wakacyjne Wyzwanie od KN Solvro (sekcje Backend oraz DevOps) będąca reprezentantem Ŝieżki Backend.',
     GITHUB_REPOSITORIES: '[REPOZYTORIA_GITHUB]',
     'GITHUB FEED': '▶ KANAŁ GITHUB',
 
@@ -164,278 +209,193 @@ const TRANSLATIONS = {
     RESPONSIBLE: 'ODPOWIEDZIALNY',
     'PRESSURE RESISTANT': 'ODPORNY NA STRES',
     'DEADLINE KEEPER': 'DOTRZYMUJĘ TERMINÓW',
-  }
-};
+
+    // About me — education & experience
+    'Wroclaw University of Science and Technology': 'Politechnika Wrocławska',
+    'SPECIALIZATION: Cybersecurity': 'Cyberbezpieczeństwo',
+    'FACULTY: Computer Science and Telecommunications':
+      'Wydział Informatyki i Telekomunikacji',
+    'INITIALIZED: since 2024': 'od 2024 r.',
+    'University of Warsaw': 'Uniwersytet Warszawski',
+    'SPECIALIZATION: Computer Science': 'Informatyka',
+    'FACULTY: Mathematics, Informatics and Mechanics':
+      'Wydział Matematyki, Informatyki i Mechaniki',
+    'INITIALIZED: 2023 - 2024': '2023 - 2024',
+    CERTIFICATES: 'CERTYFIKATY',
+    'CERT: CCNA Intro': 'CCNA: Introduction to Networks',
+    'CERT: CCNA SRWE': 'CCNA: Switching, Routing and Wireless Essentials',
+    'CERT: CyberOps': 'Cisco CyberOps Associate',
+    LANGUAGES: 'JĘZYKI',
+    EXPERIENCE: 'DOŚWIADCZENIE',
+    'EXP: KN Solvro': 'KN Solvro — sekcje Backend i DevOps',
+    'EXP: Planer':
+      'Programista backendu aplikacji Planer do zajęć na PWR w KN Solvro (od 2025 r.)',
+  },
+}
 
 // Simple translation function
 function translatePage(lang) {
-  console.log('Translating to:', lang);
-  
+  console.log('Translating to:', lang)
+
   if (!TRANSLATIONS[lang]) {
-    console.warn('Language not supported:', lang);
-    return false;
+    console.warn('Language not supported:', lang)
+    return false
   }
 
   try {
-    const elements = document.querySelectorAll('[data-translate]');
-    let translated = 0;
+    const elements = document.querySelectorAll('[data-translate]')
+    let translated = 0
 
-    elements.forEach(element => {
-      const key = element.getAttribute('data-translate');
+    elements.forEach((element) => {
+      const key = element.getAttribute('data-translate')
       if (key && TRANSLATIONS[lang][key]) {
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          element.placeholder = TRANSLATIONS[lang][key];
+          element.placeholder = TRANSLATIONS[lang][key]
         } else {
-          element.textContent = TRANSLATIONS[lang][key];
+          element.textContent = TRANSLATIONS[lang][key]
         }
-        translated++;
+        translated++
       } else if (key) {
-        console.warn('Missing translation for key:', key);
+        console.warn('Missing translation for key:', key)
       }
-    });
+    })
 
-    console.log(`Translated ${translated} elements`);
-    return true;
+    console.log(`Translated ${translated} elements`)
+    return true
   } catch (error) {
-    console.error('Translation failed:', error);
-    return false;
+    console.error('Translation failed:', error)
+    return false
   }
 }
 
 // Simple language switch function
 function switchLanguage() {
   try {
-    const currentLang = localStorage.getItem('language') || 'en';
-    const newLang = currentLang === 'en' ? 'pl' : 'en';
-    
-    console.log('Switching from', currentLang, 'to', newLang);
-    
+    const currentLang = localStorage.getItem('language') || 'en'
+    const newLang = currentLang === 'en' ? 'pl' : 'en'
+
+    console.log('Switching from', currentLang, 'to', newLang)
+
     if (translatePage(newLang)) {
-      localStorage.setItem('language', newLang);
-      document.documentElement.lang = newLang;
-      
+      localStorage.setItem('language', newLang)
+      document.documentElement.lang = newLang
+
       // Update existing button text (if any)
-      const buttons = document.querySelectorAll('.language-switcher');
-      buttons.forEach(button => {
+      const buttons = document.querySelectorAll('.language-switcher')
+      buttons.forEach((button) => {
         if (newLang === 'pl') {
-          button.innerHTML = '<i class="fas fa-language"></i> ENGLISH';
+          button.innerHTML = '<i class="fas fa-language"></i> ENGLISH'
         } else {
-          button.innerHTML = '<i class="fas fa-language"></i> POLSKI';
+          button.innerHTML = '<i class="fas fa-language"></i> POLSKI'
         }
-      });
-      
+      })
+
       // Update floating translation button
-      const floatingButton = document.querySelector('.floating-translation-switcher');
+      const floatingButton = document.querySelector(
+        '.floating-translation-switcher',
+      )
       if (floatingButton) {
-        updateFloatingButtonText(floatingButton, newLang);
+        updateFloatingButtonText(floatingButton, newLang)
       }
-      
-      console.log('Language switched successfully to:', newLang);
+
+      // Remove stored reference to observer since we no longer use inline styles
+      if (floatingButton && floatingButton._observer) {
+        floatingButton._observer.disconnect()
+      }
+
+      console.log('Language switched successfully to:', newLang)
     } else {
-      console.error('Translation failed, not saving language preference');
+      console.error('Translation failed, not saving language preference')
     }
   } catch (error) {
-    console.error('Language switch failed:', error);
-    alert('Language switching temporarily unavailable');
+    console.error('Language switch failed:', error)
+    alert('Language switching temporarily unavailable')
   }
 }
 
 // Create floating translation switcher similar to theme switcher
 function createFloatingTranslationSwitcher(currentLang) {
   // Remove existing translation switcher if any
-  const existingSwitcher = document.querySelector('.floating-translation-switcher');
+  const existingSwitcher = document.querySelector(
+    '.floating-translation-switcher',
+  )
   if (existingSwitcher) {
-    existingSwitcher.remove();
+    existingSwitcher.remove()
   }
 
-  const translationSwitcher = document.createElement('button');
-  translationSwitcher.className = 'floating-translation-switcher';
-  translationSwitcher.setAttribute('aria-label', 'Toggle language');
-  translationSwitcher.setAttribute('title', 'Switch between English and Polish');
+  const translationSwitcher = document.createElement('button')
+  translationSwitcher.className = 'floating-translation-switcher'
+  translationSwitcher.setAttribute('aria-label', 'Toggle language')
+  translationSwitcher.setAttribute('title', 'Switch between English and Polish')
 
   // Update button text based on current language
-  updateFloatingButtonText(translationSwitcher, currentLang);
-
-  // Enhanced position and styling similar to theme switcher
-  const setTranslationSwitcherStyle = () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isLightTheme = theme === 'light' || document.body.classList.contains('light-theme');
-    
-    if (isLightTheme) {
-      translationSwitcher.style.cssText = `
-        position: fixed;
-        bottom: 120px;
-        right: 20px;
-        z-index: 1000;
-        background: #fff;
-        border: 2px solid #333333;
-        color: #333333;
-        padding: 10px 15px;
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(51,51,51,0.1);
-        font-family: 'Courier New', monospace;
-        font-size: 12px;
-        font-weight: bold;
-        border-radius: 0;
-        transition: all 0.3s ease-in-out;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      `;
-    } else {
-      translationSwitcher.style.cssText = `
-        position: fixed;
-        bottom: 120px;
-        right: 20px;
-        z-index: 1000;
-        background: #000000;
-        border: 2px solid #00ff00;
-        color: #00ff00;
-        padding: 10px 15px;
-        cursor: pointer;
-        font-family: 'Courier New', monospace;
-        font-size: 12px;
-        font-weight: bold;
-        border-radius: 0;
-        transition: all 0.3s ease-in-out;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        box-shadow: 0 0 5px rgba(0,255,0,0.2);
-      `;
-    }
-  };
-
-  // Initial styling
-  setTranslationSwitcherStyle();
-
-  // Enhanced theme change listener
-  const handleThemeChange = () => {
-    setTranslationSwitcherStyle();
-  };
-
-  // Listen for theme changes via multiple methods
-  document.addEventListener('themeChanged', handleThemeChange);
-  
-  // Also listen for data-theme attribute changes
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'attributes' && 
-          (mutation.attributeName === 'data-theme' || 
-           mutation.attributeName === 'class')) {
-        setTranslationSwitcherStyle();
-      }
-    });
-  });
-  
-  observer.observe(document.documentElement, { attributes: true });
-  observer.observe(document.body, { attributes: true });
-
-  // Enhanced hover effects matching theme switcher
-  translationSwitcher.addEventListener('mouseenter', () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isLightTheme = theme === 'light' || document.body.classList.contains('light-theme');
-    
-    if (isLightTheme) {
-      translationSwitcher.style.transform = 'translateY(-3px) scale(1.05)';
-      translationSwitcher.style.boxShadow = '0 8px 25px rgba(51,51,51,0.25)';
-      translationSwitcher.style.borderColor = '#555555';
-    } else {
-      translationSwitcher.style.transform = 'translateY(-3px) scale(1.05)';
-      translationSwitcher.style.boxShadow = '0 0 20px rgba(0,255,0,0.4), 0 0 40px rgba(0,255,0,0.2)';
-      translationSwitcher.style.borderColor = '#44ff44';
-    }
-  });
-
-  translationSwitcher.addEventListener('mouseleave', () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isLightTheme = theme === 'light' || document.body.classList.contains('light-theme');
-    
-    translationSwitcher.style.transform = 'translateY(0) scale(1)';
-    
-    if (isLightTheme) {
-      translationSwitcher.style.boxShadow = '0 0 10px rgba(51,51,51,0.1)';
-      translationSwitcher.style.borderColor = '#333333';
-    } else {
-      translationSwitcher.style.boxShadow = '0 0 5px rgba(0,255,0,0.2)';
-      translationSwitcher.style.borderColor = '#00ff00';
-    }
-  });
-
-  // Active/click effect
-  translationSwitcher.addEventListener('mousedown', () => {
-    translationSwitcher.style.transform = 'translateY(0) scale(0.95)';
-  });
-
-  translationSwitcher.addEventListener('mouseup', () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isLightTheme = theme === 'light' || document.body.classList.contains('light-theme');
-    translationSwitcher.style.transform = 'translateY(-3px) scale(1.05)';
-  });
+  updateFloatingButtonText(translationSwitcher, currentLang)
 
   // Add to body
-  document.body.appendChild(translationSwitcher);
+  document.body.appendChild(translationSwitcher)
 
   // Add click event with improved feedback
   translationSwitcher.addEventListener('click', (e) => {
-    e.preventDefault();
-    
+    e.preventDefault()
+
     // Visual feedback
-    translationSwitcher.style.transform = 'scale(0.9)';
+    translationSwitcher.style.transform = 'scale(0.9)'
     setTimeout(() => {
-      translationSwitcher.style.transform = 'scale(1)';
-    }, 150);
-    
+      translationSwitcher.style.transform = 'scale(1)'
+    }, 150)
+
     // Call language switch
-    window.switchLanguage();
-  });
+    window.switchLanguage()
+  })
 
   // Store reference for cleanup
-  translationSwitcher._observer = observer;
+  translationSwitcher._observer = observer
 }
 
 // Update floating button text
 function updateFloatingButtonText(button, lang) {
   if (lang === 'pl') {
-    button.innerHTML = '<i class="fas fa-language"></i> ENGLISH';
+    button.innerHTML = '<i class="fas fa-language"></i> <span>ENGLISH</span>'
   } else {
-    button.innerHTML = '<i class="fas fa-language"></i> POLSKI';
+    button.innerHTML = '<i class="fas fa-language"></i> <span>POLSKI</span>'
   }
 }
 
 // Initialize on page load
 function initTranslations() {
   try {
-    const savedLang = localStorage.getItem('language') || 'en';
-    console.log('Initializing translations with language:', savedLang);
-    
-    translatePage(savedLang);
-    document.documentElement.lang = savedLang;
-    
+    const savedLang = localStorage.getItem('language') || 'en'
+    console.log('Initializing translations with language:', savedLang)
+
+    translatePage(savedLang)
+    document.documentElement.lang = savedLang
+
     // Create floating translation switcher
-    createFloatingTranslationSwitcher(savedLang);
-    
+    createFloatingTranslationSwitcher(savedLang)
+
     // Update existing button text (if any)
-    const buttons = document.querySelectorAll('.language-switcher');
-    buttons.forEach(button => {
+    const buttons = document.querySelectorAll('.language-switcher')
+    buttons.forEach((button) => {
       if (savedLang === 'pl') {
-        button.innerHTML = '<i class="fas fa-language"></i> ENGLISH';
+        button.innerHTML = '<i class="fas fa-language"></i> ENGLISH'
       } else {
-        button.innerHTML = '<i class="fas fa-language"></i> POLSKI';
+        button.innerHTML = '<i class="fas fa-language"></i> POLSKI'
       }
-    });
-    
-    console.log('Translations initialized successfully');
+    })
+
+    console.log('Translations initialized successfully')
   } catch (error) {
-    console.error('Translation initialization failed:', error);
+    console.error('Translation initialization failed:', error)
   }
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTranslations);
+  document.addEventListener('DOMContentLoaded', initTranslations)
 } else {
-  initTranslations();
+  initTranslations()
 }
 
 // Export for global use
-window.switchLanguage = switchLanguage;
-window.translatePage = translatePage;
+window.switchLanguage = switchLanguage
+window.translatePage = translatePage
