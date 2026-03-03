@@ -5,6 +5,10 @@
   cursor: default;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 @page {
   size: A4;
   margin: 0;
@@ -571,6 +575,7 @@ body::before {
   .sidebar {
     border-right: none;
     border-bottom: 4px solid var(--border-primary);
+    overflow: hidden;
   }
 
   h1 {
@@ -705,6 +710,17 @@ body::before {
   .profile-container {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  /* Prevent the TV widget knob images from breaking page width */
+  .profile-image-wrapper {
+    overflow: hidden;
+  }
+
+  /* Use full width on mobile so shadow/margins don't push past viewport */
+  .container {
+    width: 100%;
+    box-shadow: none;
   }
 }
 
