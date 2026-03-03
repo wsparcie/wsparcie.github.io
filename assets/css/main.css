@@ -577,6 +577,12 @@ body::before {
     font-size: 40px;
   }
 
+  /* Constrain logo image to viewport */
+  h1 img {
+    max-width: 80vw;
+    height: auto;
+  }
+
   .mobile-menu-toggle {
     display: block;
   }
@@ -626,11 +632,18 @@ body::before {
   }
 
   .theme-switcher,
-  .floating-translation-switcher,
-  .scroll-top-btn {
+  .floating-translation-switcher {
     width: 36px;
     height: 36px;
     font-size: 13px;
+  }
+
+  .scroll-top-btn {
+    width: 80px;
+    height: 36px;
+    font-size: 13px;
+    /* push above the bottom social bar (~50px) */
+    bottom: 60px;
   }
 
   .theme-switcher {
@@ -644,6 +657,53 @@ body::before {
   }
 
   .repo-stats {
+    gap: 10px;
+  }
+
+  /* Nav-bar: remove absolute positioning, become a flex row with hamburger */
+  .nav-bar {
+    position: static;
+    transform: none;
+    width: 100%;
+    min-width: 0;
+    left: auto;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: none;
+    border-top: 2px solid var(--border-primary);
+    margin-top: 8px;
+  }
+
+  /* Header: less padding on mobile */
+  header {
+    padding: 15px;
+  }
+
+  /* Stack logo+nav and CV links vertically on mobile */
+  header > div:not(.glitch) {
+    flex-direction: column;
+    gap: 10px !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Contact-info chips: smaller horizontal padding */
+  .contact-info span {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  .contact-info {
+    gap: 8px !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Profile container: stack on mobile */
+  .profile-container {
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 }

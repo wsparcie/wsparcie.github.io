@@ -186,3 +186,35 @@
     clip: rect(102px, 9999px, 149px, 0);
   }
 }
+
+/* ─── Mobile responsive fixes ─── */
+/* Scale down the TV widget on tablets */
+@media (max-width: 768px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+  }
+
+  /*
+   * The TV widget uses absolute-positioned overlay images sized for 650×550px.
+   * We keep those dimensions intact and scale the whole wrapper down so the
+   * internal layout is preserved. Negative margin-bottom compensates for the
+   * dead vertical space created by the CSS transform (which does not affect flow).
+   */
+  .profile-image-wrapper {
+    width: 650px;
+    height: 550px;
+    max-width: none; /* reset any max-width from main.css */
+    transform: scale(0.65);
+    transform-origin: top left;
+    margin: 0 0 -192px 0; /* 550 * (1 - 0.65) ≈ 192px dead space */
+  }
+}
+
+/* Scale down more on small phones */
+@media (max-width: 480px) {
+  .profile-image-wrapper {
+    transform: scale(0.44);
+    transform-origin: top left;
+    margin-bottom: -308px; /* 550 * (1 - 0.44) ≈ 308px */
+  }
+}
