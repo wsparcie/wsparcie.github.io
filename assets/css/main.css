@@ -91,15 +91,12 @@ body::before {
 }
 
 .nav-bar {
-  transform: translateX(-30%) translateY(30%);
-  width: 40%;
+  width: 100%;
   background: var(--bg-secondary);
   border-bottom: 2px solid var(--border-primary);
   padding: 15px 40px;
-  left: 50%;
-  min-width: 500px;
-  position: absolute;
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
 }
 
 .nav-bar::before {
