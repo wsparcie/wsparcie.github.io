@@ -5,6 +5,30 @@
   gap: 30px;
 }
 
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cyber-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cyber-input {
+    font-size: 13px;
+  }
+
+  .contact-method {
+    padding: 15px;
+  }
+}
+
 .contact-methods {
   display: flex;
   flex-direction: column;

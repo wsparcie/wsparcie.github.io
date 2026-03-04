@@ -143,10 +143,22 @@ img[src*='channel2.png'].pressed {
     padding: 3px 6px !important;
   }
 
-  /* Make knobs slightly larger on mobile for easier interaction */
+  /* Hide decorative knobs on mobile — they extend outside the wrapper */
+  img[src*='volume.png'],
+  img[src*='contrast.png'] {
+    display: none !important;
+  }
+
+  /* Hide channel knobs on mobile (no room for them) */
   img[src*='channel1.png'],
   img[src*='channel2.png'] {
-    transform: scale(0.12) !important;
+    display: none !important;
+  }
+
+  /* Let the sidebar expand enough to show the TV widget */
+  .sidebar {
+    overflow: visible;
+    min-height: 240px;
   }
 }
 

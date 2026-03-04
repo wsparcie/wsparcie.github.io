@@ -47,6 +47,69 @@
     />
   </head>
   <body>
+    <!-- MOBILE TOPBAR -->
+    <div class="mobile-topbar">
+      <img
+        src="assets/images/wsparcie.png"
+        alt="WSPARCIE"
+        class="mobile-topbar__logo"
+      />
+      <div class="mobile-topbar__actions">
+        <button
+          class="mobile-topbar__btn"
+          id="mobile-lang-btn"
+          aria-label="Switch language"
+        >
+          EN
+        </button>
+        <button
+          class="mobile-topbar__btn"
+          id="mobile-theme-btn"
+          aria-label="Toggle theme"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
+        <button
+          class="mobile-topbar__btn"
+          id="mobile-menu-btn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="mobile-topbar__ham"
+            ><span></span><span></span><span></span
+          ></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <span class="mobile-nav-overlay__label">// NAVIGATION</span>
+      <a href="index.html" class="nav-item" data-translate="HOME">HOME</a>
+      <a href="aboutme.html" class="nav-item" data-translate="ABOUT_ME"
+        >ABOUT_ME</a
+      >
+      <a href="projects.html" class="nav-item" data-translate="PROJECTS"
+        >PROJECTS</a
+      >
+      <a href="blog.html" class="nav-item active" data-translate="BLOG">BLOG</a>
+      <a href="contact.html" class="nav-item" data-translate="CONTACT"
+        >CONTACT</a
+      >
+      <div class="mobile-nav-overlay__cv">
+        <a
+          href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
+          target="_blank"
+          >⚡ CV 🇵🇱</a
+        >
+        <a
+          href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
+          target="_blank"
+          >⚡ CV 🇬🇧</a
+        >
+      </div>
+    </div>
+
     <div class="social-sidebar">
       <a
         href="https://github.com/wsparcie"
@@ -149,6 +212,7 @@
       <header>
         <div class="glitch"></div>
         <div
+          class="header-inner"
           style="
             display: flex;
             align-items: center;
@@ -157,6 +221,7 @@
           "
         >
           <div
+            class="header-logo-nav"
             style="display: flex; flex-direction: column; align-items: center"
           >
             <h1>
@@ -170,9 +235,9 @@
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
               <button
                 class="mobile-menu-toggle"
-                aria-label="Toggle navigation"
+                id="mobile-menu-toggle"
+                aria-label="Toggle menu"
                 aria-expanded="false"
-                aria-controls="nav-menu"
               >
                 <span class="menu-icon"></span>
               </button>
@@ -254,5 +319,6 @@
     <script src="assets/js/sw.js"></script>
     <script src="assets/js/simple-translations.js"></script>
     <script src="assets/js/theme-switcher.js"></script>
+    <script src="assets/js/mobile.js"></script>
   </body>
 </html>

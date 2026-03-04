@@ -5,10 +5,6 @@
   cursor: default;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 @page {
   size: A4;
   margin: 0;
@@ -40,22 +36,6 @@ html {
   color: var(--text-secondary);
   text-shadow: none;
   transition: color 0.3s ease;
-}
-
-/* Responsive title sizing */
-@media (max-width: 768px) {
-  h1,
-  .title-name {
-    font-size: 40px;
-    letter-spacing: 0px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1,
-  .title-name {
-    font-size: 32px;
-  }
 }
 
 body {
@@ -566,161 +546,432 @@ body::before {
   right: 0;
 }
 
-/* Responsive menu */
+/* ================================================
+   MOBILE — complete redesign (≤768px)
+   Concept: fixed sticky topbar + fullscreen overlay nav
+   ================================================ */
+
+/* ---- 1. TOPBAR: the only thing visible at the top on mobile ---- */
+.mobile-topbar {
+  display: none; /* shown only in mobile MQ below */
+}
+
 @media (max-width: 768px) {
+  /* ---- RESET BODY / SCROLL ---- */
+  body {
+    padding-top: 54px; /* clear the fixed topbar */
+    padding-bottom: 56px; /* clear the fixed bottom social bar */
+    overflow-x: hidden;
+  }
+
+  /* Prevent scroll when nav overlay is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* ---- HIDE DESKTOP ARTIFACTS ---- */
+  /* The original header section is hidden on mobile—
+     we replace it with the topbar + overlay only */
+  header {
+    display: none !important;
+  }
+
+  .corner-element {
+    display: none;
+  }
+
+  /* ---- CONTAINER ---- */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* ---- FIXED TOPBAR ---- */
+  .mobile-topbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54px;
+    z-index: 2000;
+    background: var(--bg-secondary);
+    border-bottom: 3px solid var(--border-primary);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .mobile-topbar__logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+    /* undo any desktop inline transforms */
+    transform: none !important;
+  }
+
+  .mobile-topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Small square buttons: theme + lang + hamburger */
+  .mobile-topbar__btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    flex-shrink: 0;
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  .mobile-topbar__btn:hover,
+  .mobile-topbar__btn:active {
+    background: var(--text-primary);
+    color: var(--bg-secondary);
+  }
+
+  /* Hamburger icon inside the btn */
+  .mobile-topbar__ham {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+  }
+
+  .mobile-topbar__ham span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transition:
+      transform 0.25s,
+      opacity 0.25s;
+    transform-origin: center;
+  }
+
+  /* Animated X when open */
+  body.nav-open .mobile-topbar__ham span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  body.nav-open .mobile-topbar__ham span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  body.nav-open .mobile-topbar__ham span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ---- FULLSCREEN NAV OVERLAY ---- */
+  .mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1900;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    /* hidden state: clipped from top */
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    padding: 54px 0 56px 0;
+  }
+
+  .mobile-nav-overlay.active {
+    clip-path: inset(0 0 0% 0);
+    pointer-events: all;
+  }
+
+  /* Scanline effect on the overlay */
+  .mobile-nav-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.08) 3px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Current page label at top of overlay */
+  .mobile-nav-overlay__label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-accent);
+    margin-bottom: 30px;
+    opacity: 0.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Each nav link */
+  .mobile-nav-overlay .nav-item {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 18px 30px;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+    position: relative;
+    z-index: 1;
+    transition:
+      padding-left 0.2s,
+      color 0.2s;
+    white-space: nowrap;
+    /* kill all desktop effects */
+    transform: none !important;
+    box-shadow: none !important;
+    flex: none !important;
+  }
+
+  .mobile-nav-overlay .nav-item::before {
+    display: none !important;
+  }
+
+  .mobile-nav-overlay .nav-item::after {
+    display: none !important;
+  }
+
+  .mobile-nav-overlay .nav-item:first-child {
+    border-top: 1px solid rgba(51, 51, 51, 0.15);
+  }
+
+  .mobile-nav-overlay .nav-item:active,
+  .mobile-nav-overlay .nav-item:hover {
+    padding-left: 46px;
+    color: var(--text-secondary);
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent;
+  }
+
+  .mobile-nav-overlay .nav-item.active {
+    color: var(--text-accent);
+    padding-left: 46px;
+  }
+
+  /* Prefix character on active/hovered item */
+  .mobile-nav-overlay .nav-item.active::before,
+  .mobile-nav-overlay .nav-item:hover::before {
+    content: '>' !important;
+    display: block !important;
+    position: absolute !important;
+    left: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    animation: blink 0.8s infinite !important;
+    left-100: unset !important;
+    transition: none !important;
+  }
+
+  /* CV links at the bottom of overlay */
+  .mobile-nav-overlay__cv {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .mobile-nav-overlay__cv a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--text-accent);
+    color: var(--bg-secondary);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 2px solid var(--border-primary);
+  }
+
+  /* ---- HIDE DESKTOP NAV (it's inside header which is hidden) ---- */
+  .nav-bar,
+  .nav-menu:not(.mobile-nav-overlay .nav-menu) {
+    display: none !important;
+  }
+
+  /* ---- HIDE DESKTOP FLOATING THEME / LANG BUTTONS ---- */
+  /* (they are replaced by the topbar versions) */
+  .theme-switcher,
+  .floating-translation-switcher {
+    display: none !important;
+  }
+
+  /* ---- SCROLL-TO-TOP BTN ---- */
+  .scroll-top-btn {
+    bottom: 64px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .scroll-top-btn span {
+    display: none;
+  }
+
+  /* ---- MAIN CONTENT ---- */
   .main-content {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .sidebar {
     border-right: none;
-    border-bottom: 4px solid var(--border-primary);
-    overflow: hidden;
+    border-bottom: 3px solid var(--border-primary);
+    padding: 20px 15px;
   }
 
-  h1 {
-    font-size: 40px;
+  .content {
+    padding: 20px 15px;
   }
 
-  /* Constrain logo image to viewport */
-  h1 img {
-    max-width: 80vw;
-    height: auto;
+  /* ---- TYPOGRAPHY ---- */
+  h2 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--text-primary);
+    transform: none !important;
   }
 
-  .mobile-menu-toggle {
-    display: block;
+  h2:hover {
+    transform: none !important;
+    box-shadow: 4px 4px 0 var(--text-primary);
   }
 
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: var(--bg-primary);
-    flex-direction: column;
-    padding: 80px 30px;
-    transition: right 0.3s;
-    z-index: 99;
-    display: none;
-  }
-
-  .nav-menu.active {
-    right: 0;
-    display: flex;
-  }
-
-  .nav-item {
-    border-right: 2px solid var(--border-primary);
-    border-bottom: none;
-  }
-
-  .nav-item:last-child {
-    border-bottom: 2px solid var(--border-primary);
-  }
-
-  .mobile-menu-toggle[aria-expanded='true'] .menu-icon {
-    background: transparent;
-  }
-
-  .mobile-menu-toggle[aria-expanded='true'] .menu-icon::before {
-    transform: rotate(45deg);
-  }
-
-  .mobile-menu-toggle[aria-expanded='true'] .menu-icon::after {
-    transform: rotate(-45deg);
-  }
-
-  .social-sidebar {
-    background: rgba(245, 244, 237, 0.95);
-  }
-
-  .theme-switcher,
-  .floating-translation-switcher {
-    width: 36px;
-    height: 36px;
+  h3 {
     font-size: 13px;
+    margin: 14px 0 10px;
   }
 
-  .scroll-top-btn {
-    width: 80px;
-    height: 36px;
-    font-size: 13px;
-    /* push above the bottom social bar (~50px) */
-    bottom: 60px;
-  }
-
-  .theme-switcher {
-    top: 5px;
-    right: 5px;
-  }
-
-  .floating-translation-switcher {
-    top: 5px;
-    right: 51px;
-  }
-
-  .repo-stats {
-    gap: 10px;
-  }
-
-  /* Nav-bar: remove absolute positioning, become a flex row with hamburger */
-  .nav-bar {
-    position: static;
-    transform: none;
-    width: 100%;
-    min-width: 0;
-    left: auto;
-    padding: 8px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border-bottom: none;
-    border-top: 2px solid var(--border-primary);
-    margin-top: 8px;
-  }
-
-  /* Header: less padding on mobile */
-  header {
-    padding: 15px;
-  }
-
-  /* Stack logo+nav and CV links vertically on mobile */
-  header > div:not(.glitch) {
-    flex-direction: column;
-    gap: 10px !important;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Contact-info chips: smaller horizontal padding */
-  .contact-info span {
-    padding: 5px 12px;
+  h3::before {
+    left: -14px;
     font-size: 12px;
   }
 
-  .contact-info {
-    gap: 8px !important;
-    flex-wrap: wrap;
-    justify-content: center;
+  .section {
+    margin-bottom: 18px;
   }
 
-  /* Profile container: stack on mobile */
-  .profile-container {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  /* ---- CARDS / ITEMS ---- */
+  .skill-category:hover {
+    transform: none;
   }
 
-  /* Prevent the TV widget knob images from breaking page width */
+  .achievement-item,
+  .achievement-item:nth-child(even) {
+    transform: none;
+  }
+
+  .achievement-item:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 var(--border-accent);
+  }
+
+  /* ---- PROFILE / TV WRAPPER ---- */
   .profile-image-wrapper {
-    overflow: hidden;
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 280px !important;
+    margin: 0 auto;
+    overflow: visible;
   }
 
-  /* Use full width on mobile so shadow/margins don't push past viewport */
-  .container {
-    width: 100%;
-    box-shadow: none;
+  /* ---- FOOTER ---- */
+  .footer-text {
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 14px 10px;
+  }
+
+  .footer-text:hover::before {
+    clip-path: none;
+  }
+
+  /* ---- SOCIAL BOTTOM BAR ---- */
+  /* Handled in social.css; just ensure no conflict */
+}
+
+/* ---- Small phones ≤480px ---- */
+@media (max-width: 480px) {
+  .mobile-nav-overlay .nav-item {
+    font-size: 15px;
+    padding: 15px 24px;
+    letter-spacing: 3px;
+  }
+
+  .mobile-nav-overlay .nav-item.active,
+  .mobile-nav-overlay .nav-item:active,
+  .mobile-nav-overlay .nav-item:hover {
+    padding-left: 40px;
+  }
+
+  .mobile-nav-overlay__cv a {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+
+  .profile-image-wrapper {
+    max-width: 260px !important;
+    height: 240px !important;
+  }
+
+  h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 7px 8px;
+  }
+
+  .sidebar,
+  .content {
+    padding: 15px 12px;
   }
 }
 
