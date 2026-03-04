@@ -611,8 +611,28 @@ body::before {
     width: auto;
     display: block;
     flex-shrink: 0;
-    /* undo any desktop inline transforms */
-    transform: none !important;
+    transform: none;
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
+    filter: drop-shadow(0 0 0px var(--text-accent));
+  }
+
+  .mobile-topbar a:has(.mobile-topbar__logo) {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mobile-topbar a:has(.mobile-topbar__logo):active .mobile-topbar__logo,
+  .mobile-topbar a:has(.mobile-topbar__logo):hover .mobile-topbar__logo {
+    transform: scale(1.08) skewX(-3deg);
+    filter: drop-shadow(0 0 6px var(--text-accent))
+      drop-shadow(2px 0 0 var(--text-secondary))
+      drop-shadow(-2px 0 0 var(--text-accent));
+    animation: logo-glitch 0.4s steps(2) forwards;
   }
 
   .mobile-topbar__actions {
@@ -801,7 +821,6 @@ body::before {
     font-size: 18px !important;
     font-weight: 900 !important;
     animation: blink 0.8s infinite !important;
-    left-100: unset !important;
     transition: none !important;
   }
 
@@ -825,6 +844,26 @@ body::before {
     letter-spacing: 1px;
     text-decoration: none;
     border: 2px solid var(--border-primary);
+    animation: cv-idle-pulse 3s ease-in-out infinite;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .mobile-nav-overlay__cv a:nth-child(2) {
+    animation-delay: 1.5s;
+  }
+
+  .mobile-nav-overlay__cv a:active,
+  .mobile-nav-overlay__cv a:hover {
+    transform: skewX(10deg) scale(1.1);
+    background: var(--text-secondary);
+    color: var(--bg-secondary);
+    box-shadow:
+      0 0 20px var(--shadow-accent),
+      4px 4px 0 var(--text-primary);
+    animation: cv-hover-flash 0.3s steps(2);
   }
 
   /* ---- HIDE DESKTOP NAV (it's inside header which is hidden) ---- */
@@ -1110,6 +1149,46 @@ h1 {
     0 0 20px var(--shadow-primary);
 }
 
+h1 a {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+h1 a img {
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  filter: drop-shadow(0 0 0px var(--text-accent));
+}
+
+h1 a:hover img {
+  transform: scale(1.07) skewX(-3deg);
+  filter: drop-shadow(0 0 8px var(--text-accent))
+    drop-shadow(2px 0 0 var(--text-secondary))
+    drop-shadow(-2px 0 0 var(--text-accent));
+  animation: logo-glitch 0.4s steps(2) forwards;
+}
+
+@keyframes logo-glitch {
+  0% {
+    transform: scale(1.07) skewX(-3deg) translateX(0);
+  }
+  25% {
+    transform: scale(1.07) skewX(-3deg) translateX(-3px);
+  }
+  50% {
+    transform: scale(1.07) skewX(-3deg) translateX(3px);
+  }
+  75% {
+    transform: scale(1.07) skewX(-3deg) translateX(-2px);
+  }
+  100% {
+    transform: scale(1.07) skewX(-3deg) translateX(0);
+  }
+}
+
 .contact-info {
   display: flex;
   gap: 30px;
@@ -1120,35 +1199,74 @@ h1 {
 
 .contact-info span {
   position: relative;
-  padding: 5px 40px;
+  padding: 0;
   background: var(--text-accent);
   color: var(--bg-secondary);
   transform: skewX(-10deg);
-  transition: all 0.3s;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+  animation: cv-idle-pulse 3s ease-in-out infinite;
+}
+
+.contact-info span:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+@keyframes cv-idle-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 4px var(--shadow-accent);
+  }
+  50% {
+    box-shadow:
+      0 0 14px var(--shadow-accent),
+      0 0 28px var(--shadow-primary);
+  }
 }
 
 .contact-info span:hover {
-  transform: skewX(10deg) scale(1.1);
+  transform: skewX(10deg) scale(1.12);
   background: var(--text-secondary);
   color: var(--bg-secondary);
-  box-shadow: 0 0 20px var(--shadow-accent);
+  box-shadow:
+    0 0 24px var(--shadow-accent),
+    4px 4px 0 var(--text-primary);
+  animation: cv-hover-flash 0.3s steps(2);
+}
+
+@keyframes cv-hover-flash {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+  100% {
+    filter: brightness(1);
+  }
 }
 
 .contact-info a {
+  display: inline-block;
+  padding: 5px 40px;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .main-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   position: relative;
 }
 
 .sidebar {
   background: var(--bg-accent);
   padding: 30px;
-  border-right: 4px solid var(--border-primary);
+  border-bottom: 4px solid var(--border-primary);
   position: relative;
 }
 

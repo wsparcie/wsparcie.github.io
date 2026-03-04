@@ -320,6 +320,65 @@
   outline-offset: 2px;
 }
 
+/* GitHub feed drawer needs more height for many repos */
+#github-feed-drawer.expanded .skill-drawer-content {
+  max-height: 6000px;
+}
+
+/* Individual repo drawers */
+.repo-drawer.expanded .skill-drawer-content {
+  max-height: 400px;
+}
+
+.repo-drawer .repo-description {
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.6;
+  border-left: 4px solid var(--border-accent);
+  padding-left: 10px;
+}
+
+.repo-drawer .repo-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.repo-drawer .stat-item {
+  font-size: 12px;
+  font-family: monospace;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  padding: 3px 10px;
+  color: var(--text-primary);
+}
+
+.repo-drawer .lang-tag {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+  border-color: var(--border-accent);
+  font-weight: 700;
+}
+
+.repo-drawer .view-code-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-accent);
+  text-decoration: none;
+  border: 2px solid var(--text-accent);
+  padding: 4px 16px;
+  transition: all 0.25s ease;
+}
+
+.repo-drawer .view-code-link:hover {
+  background: var(--text-accent);
+  color: var(--bg-secondary);
+  box-shadow: 4px 4px 0 var(--text-primary);
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .skill-drawer-tab {

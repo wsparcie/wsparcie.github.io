@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/aboutme.css" />
     <link rel="stylesheet" href="assets/css/contact.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
 
     <script>
       ;(function () {
@@ -49,11 +50,12 @@
   <body>
     <!-- MOBILE TOPBAR -->
     <div class="mobile-topbar">
-      <img
-        src="assets/images/wsparcie.png"
-        alt="WSPARCIE"
-        class="mobile-topbar__logo"
-      />
+      <a href="index.html"
+        ><img
+          src="assets/images/wsparcie.png"
+          alt="WSPARCIE"
+          class="mobile-topbar__logo"
+      /></a>
       <div class="mobile-topbar__actions">
         <button
           class="mobile-topbar__btn"
@@ -225,11 +227,14 @@
             style="display: flex; flex-direction: column; align-items: center"
           >
             <h1>
-              <img
-                src="assets/images/wsparcie.png"
-                alt=""
-                style="transform: scale(1.15) translateX(10%) translateY(10%)"
-              />
+              <a href="index.html"
+                ><img
+                  src="assets/images/wsparcie.png"
+                  alt="WSPARCIE"
+                  style="
+                    transform: scale(1.15) translateX(10%) translateY(10%);
+                  "
+              /></a>
             </h1>
 
             <nav class="nav-bar" role="navigation" aria-label="Main navigation">
@@ -388,15 +393,11 @@
           <section class="section">
             <h2 data-translate="GITHUB_REPOSITORIES"></h2>
 
-            <div class="skill-category">
-              <h4 data-translate="GITHUB FEED">▶ GITHUB FEED</h4>
-
-              <div id="github-repos" class="github-feed-container">
-                <div class="github-feed-loading">
-                  <p>
-                    <span class="tech-tag">LOADING</span> GitHub repositories...
-                  </p>
-                </div>
+            <div id="github-repos" class="github-feed-container">
+              <div class="github-feed-loading">
+                <p>
+                  <span class="tech-tag">LOADING</span> GitHub repositories...
+                </p>
               </div>
             </div>
           </section>
@@ -419,30 +420,43 @@
           if (!response.ok)
             throw new Error(repos.message || 'Failed to fetch repositories')
 
-          let html = '<div class="repos-grid">'
+          const nonForks = repos
+            .filter((r) => !r.fork)
+            .sort((a, b) => b.stargazers_count - a.stargazers_count)
+          let html = ''
 
-          repos.forEach((repo) => {
-            if (!repo.fork) {
-              const updatedAt = new Date(repo.updated_at).toLocaleDateString()
-              html += `
-                <div class="repo-card">
-                  <h3 class="repo-name">
-                    <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                  </h3>
-                  <p class="repo-description">${repo.description || 'No description provided'}</p>
+          nonForks.forEach((repo) => {
+            const updatedAt = new Date(repo.updated_at).toLocaleDateString()
+            html += `
+              <div class="skill-category repo-drawer">
+                <div class="skill-drawer-tab" aria-expanded="false" role="button" tabindex="0">
+                  <span class="clearance-indicator"></span>
+                  <span>⮞ ${repo.name.toUpperCase()}</span>
+                  <span class="skill-drawer-arrow">▼</span>
+                </div>
+                <div class="skill-drawer-content">
+                  <p class="repo-description">${repo.description || '<em>No description provided</em>'}</p>
                   <div class="repo-stats">
                     <span class="stat-item">⭐ ${repo.stargazers_count}</span>
                     <span class="stat-item">🍴 ${repo.forks_count}</span>
                     <span class="stat-item">📅 ${updatedAt}</span>
-                    ${repo.language ? `<span class="stat-item">${repo.language}</span>` : ''}
+                    ${repo.language ? `<span class="stat-item lang-tag">${repo.language}</span>` : ''}
                   </div>
                   <a href="${repo.html_url}" target="_blank" class="view-code-link">[VIEW CODE]</a>
-                </div>`
-            }
+                </div>
+              </div>`
           })
 
-          html += '</div>'
           reposContainer.innerHTML = html
+          initRepoDrawers()
+          // Auto-expand the top repo
+          const first = reposContainer.querySelector('.repo-drawer')
+          if (first) {
+            first.classList.add('expanded')
+            first
+              .querySelector('.skill-drawer-tab')
+              .setAttribute('aria-expanded', 'true')
+          }
         } catch (error) {
           reposContainer.innerHTML = `
             <div class="error-container">
@@ -451,6 +465,23 @@
               <a href="https://github.com/wsparcie?tab=repositories" target="_blank" class="github-link">[VIEW ON GITHUB]</a>
             </div>`
         }
+      }
+
+      function initRepoDrawers() {
+        document.querySelectorAll('.repo-drawer').forEach((drawer) => {
+          const tab = drawer.querySelector('.skill-drawer-tab')
+          tab.addEventListener('click', function () {
+            const isExpanded = drawer.classList.contains('expanded')
+            drawer.classList.toggle('expanded', !isExpanded)
+            tab.setAttribute('aria-expanded', String(!isExpanded))
+          })
+          tab.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              tab.click()
+            }
+          })
+        })
       }
 
       fetchGitHubRepos()
