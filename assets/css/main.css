@@ -91,12 +91,15 @@ body::before {
 }
 
 .nav-bar {
-  width: 100%;
+  transform: translateX(-30%) translateY(30%);
+  width: 40%;
   background: var(--bg-secondary);
   border-bottom: 2px solid var(--border-primary);
   padding: 15px 40px;
-  position: relative;
-  overflow: visible;
+  left: 50%;
+  min-width: 500px;
+  position: absolute;
+  overflow: hidden;
 }
 
 .nav-bar::before {
@@ -550,6 +553,10 @@ body::before {
 
 /* ---- 1. TOPBAR: the only thing visible at the top on mobile ---- */
 .mobile-topbar {
+  display: none; /* shown only in mobile MQ below */
+}
+
+.mobile-nav-overlay {
   display: none; /* shown only in mobile MQ below */
 }
 
@@ -1258,6 +1265,20 @@ h1 a:hover img {
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
+}
+
+/* Two-column layout for about/projects pages (matches index.html visual proportions) */
+.page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .sidebar {
