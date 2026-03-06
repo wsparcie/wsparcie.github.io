@@ -98,18 +98,6 @@
       <a href="contact.html" class="nav-item" data-translate="CONTACT"
         >CONTACT</a
       >
-      <div class="mobile-nav-overlay__cv">
-        <a
-          href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
-          target="_blank"
-          >⚡ CV 🇵🇱</a
-        >
-        <a
-          href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
-          target="_blank"
-          >⚡ CV 🇬🇧</a
-        >
-      </div>
     </div>
 
     <div class="social-sidebar">
@@ -281,28 +269,11 @@
               gap: 20px;
               align-items: center;
             "
-          >
-            <span
-              ><a
-                href="https://drive.google.com/file/d/1F2qqJpoD01xJB9qjlHr4eiv0SOjagAxi/view?usp=sharing"
-                target="_blank"
-                aria-label="Download CV in Polish"
-                >⚡ CV 🇵🇱</a
-              ></span
-            >
-            <span
-              ><a
-                href="https://drive.google.com/file/d/1NXaqz7TQUoBxuw8Olyur7cj5_rcEtEu5/view?usp=sharing"
-                target="_blank"
-                aria-label="Download CV in English"
-                >⚡ CV 🇬🇧</a
-              ></span
-            >
-          </div>
+          ></div>
         </div>
       </header>
 
-      <div class="main-content page-layout">
+      <div class="main-content page-layout" id="main-content">
         <aside class="sidebar">
           <section class="section">
             <h2 data-translate="PROJECTS"></h2>
@@ -467,14 +438,69 @@
         }
       }
 
+      // ---- Audio system ----
+      let audioContext = null
+      const audioBuffers = {}
+
+      async function initAudio() {
+        try {
+          audioContext = new (
+            window.AudioContext || window.webkitAudioContext
+          )()
+          const response = await fetch('./assets/sounds/paper_flip.mp3')
+          const arrayBuffer = await response.arrayBuffer()
+          audioBuffers['paperFlip'] =
+            await audioContext.decodeAudioData(arrayBuffer)
+        } catch (e) {
+          // audio unavailable
+        }
+      }
+
+      function playPaperFlip() {
+        if (!audioContext) return
+        if (audioContext.state === 'suspended') audioContext.resume()
+        if (!audioBuffers['paperFlip']) return
+        try {
+          const source = audioContext.createBufferSource()
+          const gain = audioContext.createGain()
+          source.buffer = audioBuffers['paperFlip']
+          gain.gain.value = 0.5
+          source.connect(gain)
+          gain.connect(audioContext.destination)
+          source.start(0)
+        } catch (e) {}
+      }
+
+      initAudio()
+
       function initRepoDrawers() {
-        document.querySelectorAll('.repo-drawer').forEach((drawer) => {
+        const allDrawers = document.querySelectorAll('.repo-drawer')
+
+        allDrawers.forEach((drawer) => {
           const tab = drawer.querySelector('.skill-drawer-tab')
+
           tab.addEventListener('click', function () {
             const isExpanded = drawer.classList.contains('expanded')
+
+            // Close all other drawers
+            allDrawers.forEach((other) => {
+              if (other !== drawer && other.classList.contains('expanded')) {
+                other.classList.remove('expanded')
+                other
+                  .querySelector('.skill-drawer-tab')
+                  .setAttribute('aria-expanded', 'false')
+              }
+            })
+
+            // Toggle this drawer
             drawer.classList.toggle('expanded', !isExpanded)
             tab.setAttribute('aria-expanded', String(!isExpanded))
+
+            if (!isExpanded) {
+              playPaperFlip()
+            }
           })
+
           tab.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault()
